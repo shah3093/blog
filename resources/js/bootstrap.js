@@ -12,6 +12,10 @@ try {
     window.$ = window.jQuery = require('jquery');
 
     require('bootstrap');
+    require('jquery-migrate/src/migrate');
+    require('owl.carousel/src/js/owl.carousel');
+    require('jquery-waypoints/waypoints.min');
+    require('jquery.stellar/jquery.stellar');
 } catch (e) {}
 
 /**

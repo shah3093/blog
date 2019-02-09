@@ -23,18 +23,9 @@
 
 @yield('top-categories')
 
-<section class="site-section py-sm">
-    <div class="container">
-        <div class="row blog-entries">
-            <div class="col-md-12 col-lg-8 main-content">
-                @yield('content')
-            </div>
+@yield('content')
 
-            @include('frontend.partials.sidebar')
-
-        </div>
-    </div>
-</section>
+@yield('releated-post')
 
 @include('frontend.partials.footer')
 

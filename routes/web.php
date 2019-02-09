@@ -11,4 +11,9 @@
 |
 */
 
-Route::get('/', 'Frontend\HomeController@index');
+Route::namespace('Frontend')->group(function() {
+    Route::get('/', 'HomeController@index');
+    
+    Route::get('showpost/{slug}','HomeController@showpost')->name('showpost');
+    Route::get('showcategory/{slug}','HomeController@showcategory')->name('showcategory');
+});

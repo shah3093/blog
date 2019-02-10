@@ -18,7 +18,6 @@
     @yield('styles')
 </head>
 <body>
-
 @include('frontend.partials.header')
 
 @yield('top-categories')

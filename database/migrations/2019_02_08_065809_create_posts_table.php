@@ -27,6 +27,7 @@ class CreatePostsTable extends Migration
             $table->boolean('homepageTop')->default(0);
             $table->string('featuredImage');
             $table->timestamps();
+            $table->softDeletes();
             
             $table->foreign('categoryId')->references('id')->on('categories')->onDelete('cascade');
         });

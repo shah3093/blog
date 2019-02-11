@@ -1,3 +1,7 @@
 .error-signal{
     border: solid red !important;
 }
+.image-view-in-form{
+    width: 100% !important;
+    height: 100% !important;
+}

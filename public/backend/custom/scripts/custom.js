@@ -21,5 +21,6 @@ $(function () {
             $(this).val("");
             alert("Invalid image type");
         }
-    })
+    });
+    
 });

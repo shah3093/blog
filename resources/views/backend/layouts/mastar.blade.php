@@ -54,9 +54,9 @@
         <!-- ============================================================== -->
         <!-- Bread crumb and right sidebar toggle -->
         <!-- ============================================================== -->
-        @yield('breadcrumb')
+    @yield('breadcrumb')
 
-        <!-- ============================================================== -->
+    <!-- ============================================================== -->
         <!-- End Bread crumb and right sidebar toggle -->
         <!-- ============================================================== -->
         <!-- ============================================================== -->
@@ -120,6 +120,30 @@
 <script src="{{URL::asset("backend/dist/js/sidebarmenu.js")}}"></script>
 <!--Custom JavaScript -->
 <script src="{{URL::asset("backend/dist/js/custom.min.js")}}"></script>
+<!--Sweet Alert---->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<script>
+
+
+    /*Delete data sweet alert */
+    $(".deletedatafrm").on("click", function (event) {
+        event.preventDefault();
+        var url = $(this).attr("href");
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this data!",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    $(this).submit();
+                }
+            });
+    });
+
+</script>
 
 @yield('script')
 

@@ -67,12 +67,14 @@
                             <td>{{$category->status == 1 ? "Active":"Inactive"}}</td>
                             <td>{{$category->created}}</td>
                             <td>
-                                <button type="button" class="btn btn-primary btn-sm">
+                                <a href="{{route('backend.category.edit',['category'=>$category->id])}}" type="button" class="btn btn-primary ">
                                     <i class="mdi mdi-table-edit"></i>
-                                </button>
-                                <button type="button" class="btn btn-danger btn-sm">
-                                    <i class="mdi mdi-delete"></i>
-                                </button>
+                                </a>
+                                <form class="deletedatafrm btn" action="{{route('backend.category.destroy',['category'=>$category->id])}}" method="POST">
+                                    @method('DELETE')
+                                    @csrf
+                                    <button type="submit" class="btn btn-danger  deletedata"><i class="mdi mdi-delete"></i></button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach
@@ -82,4 +84,8 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('script')
+
 @endsection

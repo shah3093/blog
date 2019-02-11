@@ -26,8 +26,9 @@
 
                 @include('backend.partials.errors')
 
-                <form id="addFrm" action="{{route('backend.category.store')}}" method="post" enctype="multipart/form-data">
+                <form id="addFrm" action="{{route('backend.category.update',['category'=>$category->id])}}" method="post" enctype="multipart/form-data">
                     @csrf
+                    @method('put')
                     <div class="card-body">
                         <div class="card-title">
                             <div class="row">
@@ -49,14 +50,25 @@
 
                         <div class="form-group">
                             <label for="name">Name <span class="text-danger">*</span></label>
-                            <input type="text" id="name" class="form-control required" value="{{old('name')}}" name="name" placeholder="Name"/>
+                            <input type="text" id="name" class="form-control required" value="{{$category->name}}" name="name" placeholder="Name"/>
                         </div>
 
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="image">Featured image <span class="text-danger">*</span></label>
-                                    <input type="file" value="{{old('image')}}" id="image" class="required image form-control" name="image"/>
+                                    <small>(To update image click on that image)</small>
+                                    <?php
+                                    $url = "";
+                                    $check = preg_match('/category/', $category->featuredImage);
+                                    if(empty($check)) {
+                                        $url = $category->featuredImage;
+                                    } else {
+                                        $url = Storage::url($category->featuredImage);
+                                    }
+                                    ?>
+                                    <img class="image-view-in-form" id="blah" src="{{$url}}" alt="your image" onclick="document.getElementById('image').click();"/>
+                                    <input type="file" id="image" class="image form-control hide" onchange="readURL(this);" name="image"/>
                                 </div>
                             </div>
                             <div class="col-md-1"></div>
@@ -69,14 +81,14 @@
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="custom-control custom-radio">
-                                                <input type="radio" value="1" class="custom-control-input" id="top1" name="homepageTop">
+                                                <input <?php echo $category->homepageTop == 1 ? 'checked' : ''; ?> type="radio" value="1" class="custom-control-input" id="top1" name="homepageTop">
                                                 <label class="custom-control-label" for="top1">Yes</label>
                                             </div>
                                         </div>
                                         <div class="col-md-1"></div>
                                         <div class="col-md-4">
                                             <div class="custom-control custom-radio">
-                                                <input checked value="0" type="radio" class="custom-control-input" id="top2" name="homepageTop">
+                                                <input <?php echo $category->homepageTop == 0 ? 'checked' : ''; ?> value="0" type="radio" class="custom-control-input" id="top2" name="homepageTop">
                                                 <label class="custom-control-label" for="top2">No</label>
                                             </div>
                                         </div>
@@ -90,14 +102,14 @@
 
                                         <div class="col-md-4">
                                             <div class="custom-control custom-radio">
-                                                <input checked value="1" type="radio" class="custom-control-input" id="active" name="status">
+                                                <input <?php echo $category->status == 1 ? 'checked' : ''; ?> value="1" type="radio" class="custom-control-input" id="active" name="status">
                                                 <label class="custom-control-label" for="active">Active</label>
                                             </div>
                                         </div>
                                         <div class="col-md-1"></div>
                                         <div class="col-md-4">
                                             <div class="custom-control custom-radio">
-                                                <input value="0" type="radio" class="custom-control-input" id="inactive" name="status">
+                                                <input <?php echo $category->status == 0 ? 'checked' : ''; ?> value="0" type="radio" class="custom-control-input" id="inactive" name="status">
                                                 <label class="custom-control-label" for="inactive">Inactive</label>
                                             </div>
                                         </div>
@@ -107,7 +119,7 @@
                         </div>
                         <div class="form-group">
                             <label for="name">Description </label>
-                            <textarea id="editor" name="description" class="form-control" style="height: 300px;">{{old('description')}}</textarea>
+                            <textarea id="editor" name="description" class="form-control" style="height: 300px;">{{$category->description}}</textarea>
                         </div>
                     </div>
                     <div class="card-footer">
@@ -125,5 +137,20 @@
 
 @section('script')
     <script src="{{URL::asset('backend/custom/scripts/custom.js')}}"></script>
+    <script>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
 
+                reader.onload = function (e) {
+                    $('#blah')
+                        .attr('src', e.target.result)
+                        .width(150)
+                        .height(200);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
 @endsection

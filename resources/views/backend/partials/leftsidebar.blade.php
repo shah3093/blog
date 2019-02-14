@@ -16,6 +16,18 @@
                         <span class="hide-menu">Category</span>
                     </a>
                 </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('backend.tag.index')}}" aria-expanded="false">
+                        <i class="mdi mdi-tag"></i>
+                        <span class="hide-menu">Tag</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('backend.post.index')}}" aria-expanded="false">
+                        <i class="mdi mdi-file"></i>
+                        <span class="hide-menu">Post</span>
+                    </a>
+                </li>
 
             </ul>
         </nav>

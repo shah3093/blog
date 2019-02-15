@@ -74,7 +74,7 @@
                                 <a href="{{route('backend.post.edit',['category'=>$post->id])}}" type="button" class="btn btn-primary ">
                                     <i class="mdi mdi-table-edit"></i>
                                 </a>
-                                <form class="deletedatafrm btn" action="{{route('backend.post.destroy',['category'=>$post->id])}}" method="POST">
+                                <form class="deletedatafrm btn" action="{{route('backend.post.destroy',['post'=>$post->id])}}" method="POST">
                                     @method('DELETE')
                                     @csrf
                                     <button type="submit" class="btn btn-danger  deletedata"><i class="mdi mdi-delete"></i></button>

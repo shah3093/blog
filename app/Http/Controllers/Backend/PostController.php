@@ -103,12 +103,13 @@ class PostController extends Controller {
             try {
                 $path = $image->store('post');
                 $data2 = [
-                    'created' => \Auth::id(),
+                    'created'       => \Auth::id(),
                     'featuredImage' => $path
                 ];
                 $data = $request->input('data');
-                $data = array_merge($data,$data2);
+                $data = array_merge($data, $data2);
                 Post::create($data);
+                
                 return redirect()->route('backend.post.index');
             } catch(\Exception $exception) {
                 return redirect()->back()->withErrors([$exception->getMessage()]);
@@ -137,7 +138,10 @@ class PostController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function edit($id) {
-        //
+        $data['post'] = Post::with('category')->find($id);
+        $data['categories'] = Category::select('id', 'name')->get();
+        
+        return view('backend.post.edit', $data);
     }
     
     /**
@@ -149,7 +153,41 @@ class PostController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id) {
-        //
+        $validatedData = $request->validate([
+            'data.title'      => 'required|unique:posts,title,'.$id,
+            'data.categoryId' => 'required',
+            'data.content'    => 'required'
+        ]);
+        
+        $post = Post::find($id);
+        
+        $image = $request->file('image');
+        $path = "";
+        $data2 = [];
+        if($image != null) {
+            if(!$image->isValid()) {
+                return redirect()->back()->withErrors(["Image is not valid"]);
+            } else {
+                $path = $image->store('post');
+                Storage::delete($post->featuredImage);
+                if($path != "") {
+                    $data2 = [
+                        'featuredImage' => $path
+                    ];
+                }
+            }
+        }
+        
+        try {
+            
+            $data = $request->input('data');
+            $data = array_merge($data, $data2);
+            Post::where('id', $id)->update($data);
+            
+            return redirect()->route('backend.post.index');
+        } catch(\Exception $exception) {
+            return redirect()->back()->withErrors([$exception->getMessage()]);
+        }
     }
     
     /**
@@ -160,6 +198,8 @@ class PostController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function destroy($id) {
-        //
+        Post::destroy($id);
+        
+        return redirect()->route('backend.category.index');
     }
 }

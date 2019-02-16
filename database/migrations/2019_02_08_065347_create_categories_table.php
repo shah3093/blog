@@ -4,21 +4,21 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCategoriesTable extends Migration
-{
+class CreateCategoriesTable extends Migration {
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up()
-    {
-        Schema::create('categories', function (Blueprint $table) {
+    public function up() {
+        Schema::create('categories', function(Blueprint $table) {
             $table->increments('id');
             $table->integer('created')->unsigned()->default(0);
             $table->string('name')->unique();
             $table->string('slug')->unique();
             $table->text('description');
+            $table->text('seo_descriptions')->nullable();
+            $table->text('seo_keywords')->nullable();
             $table->string('featuredImage');
             $table->boolean('homepageTop')->default('0');
             $table->boolean('status')->default('1');
@@ -26,14 +26,13 @@ class CreateCategoriesTable extends Migration
             $table->softDeletes();
         });
     }
-
+    
     /**
      * Reverse the migrations.
      *
      * @return void
      */
-    public function down()
-    {
+    public function down() {
         Schema::dropIfExists('categories');
     }
 }

@@ -6,7 +6,16 @@
             <div class="row owl-carousel owl-theme">
                 @foreach($categoriesTopPage as $category)
                     <div class="col-md-6 col-lg-4 item" style="max-width: 100% !important;">
-                        <a href="{{route('showcategory',['slug'=>$category->slug])}}" class="a-block d-flex align-items-center height-md" style="background-image: url('{{$category->featuredImage}}'); ">
+                        <?php
+                        $url = "";
+                        $check = preg_match('/category/', $category->featuredImage);
+                        if(empty($check)) {
+                            $url = $category->featuredImage;
+                        } else {
+                            $url = Storage::url($category->featuredImage);
+                        }
+                        ?>
+                        <a href="{{route('showcategory',['slug'=>$category->slug])}}" class="a-block d-flex align-items-center height-md" style="background-image: url('{{$url}}'); ">
                             <div class="text">
                                 <h3>{{$category->name}}</h3>
                             </div>
@@ -15,7 +24,16 @@
                 @endforeach
                 @foreach($postsTopPage as $post)
                     <div class="col-md-6 col-lg-4 item" style="max-width: 100% !important;">
-                        <a href="{{route('showpost',['slug'=>$post->slug])}}" class="a-block d-flex align-items-center height-md" style="background-image: url('{{$post->featuredImage}}'); ">
+                        <?php
+                        $url = "";
+                        $check = preg_match('/post/', $post->featuredImage);
+                        if(empty($check)) {
+                            $url = $post->featuredImage;
+                        } else {
+                            $url = Storage::url($post->featuredImage);
+                        }
+                        ?>
+                        <a href="{{route('showpost',['slug'=>$post->slug])}}" class="a-block d-flex align-items-center height-md" style="background-image: url('{{$url}}'); ">
                             <div class="text">
                                 <h3>{{$post->title}}</h3>
                             </div>
@@ -37,7 +55,17 @@
                         @foreach($posts as $post)
                             <div class="col-md-6">
                                 <a href="{{route('showpost',['slug'=>$post->slug])}}" class="blog-entry element-animate" data-animate-effect="fadeIn">
-                                    <img src="{{$post->featuredImage}}" alt="{{$post->title}}">
+                                    <?php
+                                    $url = "";
+                                    $check = preg_match('/post/', $post->featuredImage);
+                                    if(empty($check)) {
+                                        $url = $post->featuredImage;
+                                    } else {
+                                        $url = Storage::url($post->featuredImage);
+                                    }
+                                    ?>
+
+                                    <img src="{{$url}}" alt="{{$post->title}}">
                                     <div class="blog-content-body">
                                         <div class="post-meta">
                                             <span class="category">

@@ -19,6 +19,7 @@
     <link href="{{URL::asset("backend/custom/css/custom.css")}}" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <script src="{{URL::asset("backend/assets/libs/jquery/dist/jquery.min.js")}}"></script>
     @yield('stylesheet')
 </head>
 <body>
@@ -107,7 +108,6 @@
 
 <!-- All Jquery -->
 <!-- ============================================================== -->
-<script src="{{URL::asset("backend/assets/libs/jquery/dist/jquery.min.js")}}"></script>
 <script src="{{URL::asset("backend/dist/js/jquery.ui.touch-punch-improved.js")}}"></script>
 <script src="{{URL::asset("backend/dist/js/jquery-ui.min.js")}}"></script>
 <!-- Bootstrap tether Core JavaScript -->

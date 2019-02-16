@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Models\Category;
 use App\Models\Files;
 use App\Models\Post;
+use App\Models\Tag;
 use DebugBar\DebugBar;
 use http\Env\Response;
 use Illuminate\Http\Request;
@@ -14,6 +15,7 @@ use Illuminate\Support\Facades\Storage;
 class PostController extends Controller {
     public function __construct() {
         $this->middleware('auth');
+        \Debugbar::disable();
     }
     
     /**
@@ -34,6 +36,7 @@ class PostController extends Controller {
      */
     public function create() {
         $data['categories'] = Category::select('id', 'name')->get();
+        $data['tags'] = Tag::select('name')->get();
         
         return view('backend.post.create', $data);
     }
@@ -108,7 +111,22 @@ class PostController extends Controller {
                 ];
                 $data = $request->input('data');
                 $data = array_merge($data, $data2);
-                Post::create($data);
+                $post = Post::create($data);
+                
+                $tags = explode(",", $request->tags);
+                
+                foreach($tags as $data) {
+                    if($data != "") {
+                        $tag = Tag::where("name", $data)->first();
+                        if(isset($tag->id)) {
+                            $post->tags()->attach($tag->id);
+                        } else {
+                            $tag = new Tag();
+                            $tag->name = $data;
+                            $post->tags()->save($tag);
+                        }
+                    }
+                }
                 
                 return redirect()->route('backend.post.index');
             } catch(\Exception $exception) {
@@ -138,8 +156,16 @@ class PostController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function edit($id) {
-        $data['post'] = Post::with('category')->find($id);
+        $post = $data['post'] = Post::with('category')->find($id);
         $data['categories'] = Category::select('id', 'name')->get();
+        $data['tags'] = Tag::select('name')->get();
+        
+        $tagstr = "";
+        foreach($post->tags as $tag) {
+            $tagstr .= $tag->name.",";
+        }
+        
+        $data['tagstr'] = $tagstr;
         
         return view('backend.post.edit', $data);
     }
@@ -159,7 +185,7 @@ class PostController extends Controller {
             'data.content'    => 'required'
         ]);
         
-        $post = Post::find($id);
+        $post = $postobj = Post::find($id);
         
         $image = $request->file('image');
         $path = "";
@@ -182,7 +208,23 @@ class PostController extends Controller {
             
             $data = $request->input('data');
             $data = array_merge($data, $data2);
-            Post::where('id', $id)->update($data);
+            $post = Post::where('id', $id)->update($data);
+            $tags = explode(",", $request->tags);
+            $tagsid = [];
+            
+            foreach($tags as $data) {
+                if($data != "") {
+                    $tag = Tag::where("name", $data)->first();
+                    if(isset($tag->id)) {
+                        array_push($tagsid, $tag->id);
+                    } else {
+                        $tag = new Tag();
+                        $tag->name = $data;
+                        array_push($tagsid, $tag->save());
+                    }
+                }
+            }
+            $postobj->tags()->sync($tagsid);
             
             return redirect()->route('backend.post.index');
         } catch(\Exception $exception) {
@@ -200,6 +242,6 @@ class PostController extends Controller {
     public function destroy($id) {
         Post::destroy($id);
         
-        return redirect()->route('backend.category.index');
+        return redirect()->route('backend.post.index');
     }
 }

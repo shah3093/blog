@@ -19,6 +19,7 @@ class CreatePostsTable extends Migration
             $table->string('title')->unique();
             $table->string('slug')->unique();
             $table->longText('content');
+            $table->text('excerpt')->nullable();
             $table->boolean('status')->default('1');
             $table->integer('created')->unsigned()->default(0);
             $table->integer('published')->unsigned()->default(0);
@@ -26,6 +27,8 @@ class CreatePostsTable extends Migration
             $table->boolean('isPopular')->default(0);
             $table->boolean('homepageTop')->default(0);
             $table->string('featuredImage');
+            $table->text('seo_descriptions')->nullable();
+            $table->text('seo_keywords')->nullable();
             $table->timestamps();
             $table->softDeletes();
             

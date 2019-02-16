@@ -45,7 +45,7 @@ class TagController extends Controller {
     
         try {
             $category = new Tag();
-            $category->name = $request->name;
+            $category->name = strtolower($request->name);
             $category->created = \Auth::user()->id;
             $category->save();
         
@@ -94,7 +94,7 @@ class TagController extends Controller {
     
         try {
             $category = Tag::find($id);
-            $category->name = $request->name;
+            $category->name = strtolower($request->name);
             $category->save();
         
             return redirect()->route('backend.tag.index');

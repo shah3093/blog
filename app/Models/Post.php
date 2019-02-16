@@ -34,4 +34,11 @@ class Post extends Model
         return Carbon::parse($value)->format('M d, Y');
     }
     
+    /**
+     * Get all of the tags for the post.
+     */
+    public function tags()
+    {
+        return $this->morphToMany(Tag::class, 'taggable');
+    }
 }

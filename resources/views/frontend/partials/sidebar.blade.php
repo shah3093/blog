@@ -16,7 +16,16 @@
                 @foreach($popular_posts as $post)
                     <li>
                         <a href="{{route('showpost',['slug'=>$post->slug])}}">
-                            <img src="{{$post->featuredImage}}" alt="{{$post->title}}" class="mr-4">
+                            <?php
+                            $url = "";
+                            $check = preg_match('/post/', $post->featuredImage);
+                            if(empty($check)) {
+                                $url = $post->featuredImage;
+                            } else {
+                                $url = Storage::url($post->featuredImage);
+                            }
+                            ?>
+                            <img src="{{$url}}" alt="{{$post->title}}" class="mr-4">
                             <div class="text">
                                 <h4>{{$post->title}}</h4>
                                 <div class="post-meta">

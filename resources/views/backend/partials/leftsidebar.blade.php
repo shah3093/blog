@@ -28,6 +28,12 @@
                         <span class="hide-menu">Post</span>
                     </a>
                 </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('backend.page.index')}}" aria-expanded="false">
+                        <i class="mdi mdi-web"></i>
+                        <span class="hide-menu">Page</span>
+                    </a>
+                </li>
 
             </ul>
         </nav>

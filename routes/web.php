@@ -29,6 +29,7 @@ Route::name('backend.')->namespace('Backend')->group(function() {
     Route::resource('category', 'CategoryController');
     Route::resource('tag', 'TagController');
     Route::resource('post', 'PostController');
+    Route::resource('page', 'PageController');
     
     Route::post('storefile','PostController@storefile')->name('storefile');
     Route::post('deletefile','PostController@deletefile')->name('deletefile');

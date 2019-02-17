@@ -34,6 +34,12 @@
                         <span class="hide-menu">Page</span>
                     </a>
                 </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('backend.menu.index')}}" aria-expanded="false">
+                        <i class="mdi mdi-web"></i>
+                        <span class="hide-menu">Menu</span>
+                    </a>
+                </li>
 
             </ul>
         </nav>

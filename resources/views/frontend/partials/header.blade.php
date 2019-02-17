@@ -56,7 +56,7 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                        <a class="nav-link" href="{{route('showpage',['slug'=>"culpa-excepturi-adipisci-maxime-amet-omnis-voluptatem-tenetur"])}}">About</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Contact</a>

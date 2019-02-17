@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Models\Category;
+use App\Models\Page;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -35,5 +36,15 @@ class HomeController extends Controller {
         $data['category'] = Category::where(['slug'=>$slug,'status'=>1])->first();
         $data['posts'] = Post::where(['categoryId'=>$data['category']->id,'status'=>1])->paginate(10);
         return view('frontend.showcategory', $data);
+    }
+    
+    public function showpage($slug){
+        $data = [];
+        $data['page'] = Page::where(['slug'=>$slug,'status'=>1])->first();
+        return view('frontend.showpage', $data);
+    }
+    
+    public function contact(){
+    
     }
 }

@@ -16,6 +16,8 @@ Route::namespace('Frontend')->group(function() {
     
     Route::get('showpost/{slug}', 'HomeController@showpost')->name('showpost');
     Route::get('showcategory/{slug}', 'HomeController@showcategory')->name('showcategory');
+    Route::get('showpage/{slug}', 'HomeController@showpage')->name('showpage');
+    Route::get('contact', 'HomeController@contact')->name('contact');
 });
 
 
@@ -30,7 +32,9 @@ Route::name('backend.')->namespace('Backend')->group(function() {
     Route::resource('tag', 'TagController');
     Route::resource('post', 'PostController');
     Route::resource('page', 'PageController');
+    Route::resource('menu', 'MenuController');
     
-    Route::post('storefile','PostController@storefile')->name('storefile');
-    Route::post('deletefile','PostController@deletefile')->name('deletefile');
+    Route::post('storefile', 'PostController@storefile')->name('storefile');
+    Route::post('deletefile', 'PostController@deletefile')->name('deletefile');
+    Route::post('getMenyTypes', 'MenuController@getMenyTypes')->name('getMenyTypes');
 });

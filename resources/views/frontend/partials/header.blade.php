@@ -32,35 +32,7 @@
         <div class="container">
             <div class="collapse navbar-collapse" id="navbarMenu">
                 <ul class="navbar-nav mx-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="{{url('/')}}">Home</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Travel</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdown04">
-                            <a class="dropdown-item" href="#">Asia</a>
-                            <a class="dropdown-item" href="#">Europe</a>
-                            <a class="dropdown-item" href="#">Dubai</a>
-                            <a class="dropdown-item" href="#">Africa</a>
-                            <a class="dropdown-item" href="#">South America</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdown05">
-                            <a class="dropdown-item" href="#">Lifestyle</a>
-                            <a class="dropdown-item" href="#">Food</a>
-                            <a class="dropdown-item" href="#">Adventure</a>
-                            <a class="dropdown-item" href="#">Travel</a>
-                            <a class="dropdown-item" href="#">Business</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('showpage',['slug'=>"culpa-excepturi-adipisci-maxime-amet-omnis-voluptatem-tenetur"])}}">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
-                    </li>
+                    {!! $header !!}
                 </ul>
             </div>
         </div>

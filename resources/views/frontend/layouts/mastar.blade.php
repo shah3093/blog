@@ -14,6 +14,7 @@
 
     <link href="{{mix('frontend/css/app.css')}}" rel="stylesheet"/>
     <link href="{{mix('frontend/css/all.css')}}" rel="stylesheet"/>
+    <link href="{{URL::asset('frontend/css/custom.css')}}" rel="stylesheet"/>
 
     @yield('styles')
 </head>

@@ -68,7 +68,7 @@ class MenuComposer {
         $menus = Menu::where("parent_id", $parentid)->get();
         foreach($menus as $menu) {
             $url = $menu->menu_type == "cutom" ? $menu->menu_url : url($menu->menu_url);
-            $submenustr .= '<div class="col-md-2">';
+            $submenustr .= '<div class="col">';
             $submenustr .= '<a class="dropdown-item" href="'.$url.'">'.$menu->name.'</a>';
             $submenustr .= $this->sub_submenugenerator($menu->id);
             $submenustr .= '</div>';

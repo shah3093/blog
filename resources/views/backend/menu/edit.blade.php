@@ -108,21 +108,21 @@
                                             <select class="required form-control select2" name="menu_url" id="menuitem">
         <option value="">Select page</option>
                                                 @foreach($pages as $page)
-                                                    <option {{ 'showpage/'.$page->slug == $menu->menu_url ? "selected":"" }} value="showpage/{{$page->slug}}">{{$page->title}}</option>
+                                                    <option {{ 'page/'.$page->slug == $menu->menu_url ? "selected":"" }} value="page/{{$page->slug}}">{{$page->title}}</option>
                                                 @endforeach
     </select>
                                         @elseif($menu->menu_type == "category")
                                             <select class="required form-control select2" name="menu_url" id="menuitem">
         <option value="">Select category</option>
                                                 @foreach($categories as $category)
-                                                    <option {{ 'showcategory/'.$category->slug == $menu->menu_url ? "selected":"" }} value="showcategory/{{$category->slug}}">{{$category->name}}</option>
+                                                    <option {{ 'category/'.$category->slug == $menu->menu_url ? "selected":"" }} value="category/{{$category->slug}}">{{$category->name}}</option>
                                                 @endforeach
     </select>
                                         @elseif($menu->menu_type == "post")
                                             <select class="required form-control select2" name="menu_url" id="menuitem">
         <option value="">Select post</option>
                                                 @foreach($posts as $post)
-                                                    <option {{ 'showpost/'.$post->slug == $menu->menu_url ? "selected":"" }} value="showpost/{{$post->slug}}">{{$post->title}}</option>
+                                                    <option {{ 'post/'.$post->slug == $menu->menu_url ? "selected":"" }} value="post/{{$post->slug}}">{{$post->title}}</option>
                                                 @endforeach
     </select>
                                         @endif

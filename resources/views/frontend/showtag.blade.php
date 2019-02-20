@@ -1,28 +1,19 @@
 @extends('frontend.layouts.mastar')
-
 @section('metatag')
-    <title>{{$category->name}}</title>
-    <meta name="keywords" content="{{$category->seo_keywords}}">
-    <meta name="description" content="{{$category->seo_descriptions}}">
+    <title>{{$tag->name}}</title>
     <meta name="author" content="Azad">
 
-    <meta name="og:title" content="{{$category->name}}"/>
-    <meta name="og:url" content="{{route('category',['slug'=>$category->slug])}}"/>
-    <meta name="og:image" content="{{$category->featuredImage}}"/>
+    <meta name="og:title" content="{{$tag->name}}"/>
+    <meta name="og:url" content="{{route('tag',['name'=>$tag->slug])}}"/>
     <meta name="og:site_name" content="Azad Blogs"/>
-    <meta name="og:description" content="{{$category->seo_descriptions}}"/>
-
-    <meta name="twitter:card" content="{{$category->seo_descriptions}}">
 
 @endsection
-
-
 @section('content')
     <section class="site-section">
         <div class="container">
             <div class="row mb-4">
                 <div class="col">
-                    <h2 class="mb-4">Category: {{$category->name}}</h2>
+                    <h2 class="mb-4">Tag: {{$tag->name}}</h2>
                 </div>
             </div>
             <div class="row blog-entries">

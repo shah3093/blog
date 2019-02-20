@@ -8,21 +8,21 @@
     <select class="required form-control select2" name="menu_url" id="menuitem">
         <option value="">Select page</option>
         @foreach($pages as $page)
-            <option value="showpage/{{$page->slug}}">{{$page->title}}</option>
+            <option value="page/{{$page->slug}}">{{$page->title}}</option>
         @endforeach
     </select>
 @elseif($type == "category")
     <select class="required form-control select2" name="menu_url" id="menuitem">
         <option value="">Select category</option>
         @foreach($categories as $category)
-            <option value="showcategory/{{$category->slug}}">{{$category->name}}</option>
+            <option value="category/{{$category->slug}}">{{$category->name}}</option>
         @endforeach
     </select>
 @elseif($type == "post")
     <select class="required form-control select2" name="menu_url" id="menuitem">
         <option value="">Select post</option>
         @foreach($posts as $post)
-            <option value="showpost/{{$post->slug}}">{{$post->title}}</option>
+            <option value="post/{{$post->slug}}">{{$post->title}}</option>
         @endforeach
     </select>
 @endif

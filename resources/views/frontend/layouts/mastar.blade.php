@@ -1,16 +1,15 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Colorlib Balita &mdash; Minimal Blog Template</title>
+
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    @yield('metatag')
 
     <link rel="stylesheet" href="{{URL::asset('frontend/fonts/vendor/flaticon/font/flaticon.css')}}">
     <link rel="stylesheet" href="{{URL::asset('frontend/css/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{URL::asset('frontend/css/animate.css')}}">
-
-    <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
 
     <link href="{{mix('frontend/css/app.css')}}" rel="stylesheet"/>
     <link href="{{mix('frontend/css/all.css')}}" rel="stylesheet"/>
@@ -47,6 +46,8 @@
 <script src="{{URL::asset('frontend/js/jquery.waypoints.min.js')}}"></script>
 {{--<script src="{{URL::asset('js/jquery.stellar.min.js')}}"></script>--}}
 <script src="{{URL::asset('frontend/js/main.js')}}"></script>
+<script src="{{URL::asset('frontend/js/printThis.js')}}"></script>
+<script src="{{URL::asset('frontend/js/custom.js')}}"></script>
 
 @yield('script')
 

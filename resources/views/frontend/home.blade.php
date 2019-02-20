@@ -15,7 +15,7 @@
                             $url = Storage::url($category->featuredImage);
                         }
                         ?>
-                        <a href="{{route('showcategory',['slug'=>$category->slug])}}" class="a-block d-flex align-items-center height-md" style="background-image: url('{{$url}}'); ">
+                        <a href="{{route('category',['slug'=>$category->slug])}}" class="a-block d-flex align-items-center height-md" style="background-image: url('{{$url}}'); ">
                             <div class="text">
                                 <h3>{{$category->name}}</h3>
                             </div>
@@ -33,7 +33,7 @@
                             $url = Storage::url($post->featuredImage);
                         }
                         ?>
-                        <a href="{{route('showpost',['slug'=>$post->slug])}}" class="a-block d-flex align-items-center height-md" style="background-image: url('{{$url}}'); ">
+                        <a href="{{route('post',['slug'=>$post->slug])}}" class="a-block d-flex align-items-center height-md" style="background-image: url('{{$url}}'); ">
                             <div class="text">
                                 <h3>{{$post->title}}</h3>
                             </div>
@@ -54,7 +54,7 @@
                     <div class="row">
                         @foreach($posts as $post)
                             <div class="col-md-6">
-                                <a href="{{route('showpost',['slug'=>$post->slug])}}" class="blog-entry element-animate" data-animate-effect="fadeIn">
+                                <a href="{{route('post',['slug'=>$post->slug])}}" class="blog-entry element-animate" data-animate-effect="fadeIn">
                                     <?php
                                     $url = "";
                                     $check = preg_match('/post/', $post->featuredImage);

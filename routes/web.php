@@ -13,11 +13,18 @@
 
 Route::namespace('Frontend')->group(function() {
     Route::get('/', 'HomeController@index');
+    Route::get('/home', 'HomeController@index');
     
-    Route::get('showpost/{slug}', 'HomeController@showpost')->name('showpost');
-    Route::get('showcategory/{slug}', 'HomeController@showcategory')->name('showcategory');
-    Route::get('showpage/{slug}', 'HomeController@showpage')->name('showpage');
+    Route::get('post/{slug}', 'HomeController@showpost')->name('post');
+    Route::get('category/{slug}', 'HomeController@showcategory')->name('category');
+    Route::get('page/{slug}', 'HomeController@showpage')->name('page');
+    Route::get('tag/{name}', 'HomeController@showtag')->name('tag');
     Route::get('contact', 'HomeController@contact')->name('contact');
+    Route::get('pdf/{type}/{slug}', 'HomeController@generatepdf')->name('pdf');
+    
+    Route::get('error', function() {
+        return view('frontend.error');
+    })->name('frontend.error');
 });
 
 

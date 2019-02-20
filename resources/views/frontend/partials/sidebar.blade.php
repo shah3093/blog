@@ -1,5 +1,8 @@
+<div class="d-none d-md-block d-lg-none">
+    <span style="margin-top: 10px;">.</span>
+</div>
 <div class="col-md-12 col-lg-4 sidebar">
-    <div class="sidebar-box search-form-wrap">
+    <div class="sidebar-box search-form-wrap  d-none d-sm-none d-md-none d-lg-block">
         <form action="#" class="search-form">
             <div class="form-group">
                 <span class="icon fa fa-search"></span>
@@ -8,14 +11,14 @@
         </form>
     </div>
 
-    <div class="sidebar-box">
+    <div class="sidebar-box d-none d-sm-none d-md-block ">
         <h3 class="heading">Popular Posts</h3>
         <div class="post-entry-sidebar">
             <ul>
 
                 @foreach($popular_posts as $post)
                     <li>
-                        <a href="{{route('showpost',['slug'=>$post->slug])}}">
+                        <a href="{{route('post',['slug'=>$post->slug])}}">
                             <?php
                             $url = "";
                             $check = preg_match('/post/', $post->featuredImage);
@@ -46,16 +49,16 @@
         <ul class="categories">
 
             @foreach($all_categories as $category)
-                <li><a href="{{route('showcategory',['slug'=>$category->slug])}}">{{$category->name}} <span>({{count($category->posts)}})</span></a></li>
+                <li><a href="{{route('category',['slug'=>$category->slug])}}">{{$category->name}} <span>({{count($category->posts)}})</span></a></li>
             @endforeach
         </ul>
     </div>
 
-    <div class="sidebar-box">
+    <div class="sidebar-box  d-none d-sm-none d-md-block">
         <h3 class="heading">Tags</h3>
         <ul class="tags">
             @foreach($all_tags as $tag)
-                <li><a href="#">{{$tag->name}}</a></li>
+                <li><a href="{{route('tag',['name'=>$tag->name])}}">{{$tag->name}}</a></li>
             @endforeach
         </ul>
     </div>

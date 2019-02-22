@@ -22,7 +22,7 @@ class PageController extends Controller {
     public function index() {
         $data['pages'] = Page::with('parent')->orderBy('id', 'desc')->get();
         
-        return view('backend.page.index', $data);
+        return view('backend.pages.index', $data);
     }
     
     /**
@@ -33,7 +33,7 @@ class PageController extends Controller {
     public function create() {
         $data['pages'] = Page::select('id', 'title')->get();
         
-        return view('backend.page.create', $data);
+        return view('backend.pages.create', $data);
     }
     
     /**
@@ -63,7 +63,7 @@ class PageController extends Controller {
                 $data = array_merge($data, $data2);
                 Page::create($data);
                 
-                return redirect()->route('backend.page.index');
+                return redirect()->route('backend.pages.index');
             } catch(\Exception $exception) {
                 return redirect()->back()->withErrors([$exception->getMessage()]);
             }
@@ -94,7 +94,7 @@ class PageController extends Controller {
         $data['page'] = Page::find($id);
         $data['pages'] = Page::select('id', 'title')->get();
         
-        return view('backend.page.edit', $data);
+        return view('backend.pages.edit', $data);
     }
     
     /**
@@ -136,7 +136,7 @@ class PageController extends Controller {
             $data = array_merge($data, $data2);
             Page::where('id', $id)->update($data);
             
-            return redirect()->route('backend.page.index');
+            return redirect()->route('backend.pages.index');
         } catch(\Exception $exception) {
             return redirect()->back()->withErrors([$exception->getMessage()]);
         }
@@ -152,6 +152,6 @@ class PageController extends Controller {
     public function destroy($id) {
         Page::destroy($id);
     
-        return redirect()->route('backend.page.index');
+        return redirect()->route('backend.pages.index');
     }
 }

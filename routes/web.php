@@ -35,11 +35,11 @@ Route::name('backend.')->namespace('Backend')->group(function() {
     Route::get('logout', 'UserController@logout')->name('logout');
     
     Route::get('admin', 'HomeController@index')->name('home');
-    Route::resource('category', 'CategoryController');
-    Route::resource('tag', 'TagController');
-    Route::resource('post', 'PostController');
-    Route::resource('page', 'PageController');
-    Route::resource('menu', 'MenuController');
+    Route::resource('categories', 'CategoryController');
+    Route::resource('tags', 'TagController');
+    Route::resource('posts', 'PostController');
+    Route::resource('pages', 'PageController');
+    Route::resource('menus', 'MenuController');
     
     Route::post('storefile', 'PostController@storefile')->name('storefile');
     Route::post('deletefile', 'PostController@deletefile')->name('deletefile');

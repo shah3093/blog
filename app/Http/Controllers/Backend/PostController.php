@@ -26,7 +26,7 @@ class PostController extends Controller {
     public function index() {
         $data['posts'] = Post::with('category')->orderBy('id', 'desc')->get();
         
-        return view('backend.post.index', $data);
+        return view('backend.posts.index', $data);
     }
     
     /**
@@ -38,7 +38,7 @@ class PostController extends Controller {
         $data['categories'] = Category::select('id', 'name')->get();
         $data['tags'] = Tag::select('name')->get();
         
-        return view('backend.post.create', $data);
+        return view('backend.posts.create', $data);
     }
     
     public function storefile(Request $request) {
@@ -128,7 +128,7 @@ class PostController extends Controller {
                     }
                 }
                 
-                return redirect()->route('backend.post.index');
+                return redirect()->route('backend.posts.index');
             } catch(\Exception $exception) {
                 return redirect()->back()->withErrors([$exception->getMessage()]);
             }
@@ -167,7 +167,7 @@ class PostController extends Controller {
         
         $data['tagstr'] = $tagstr;
         
-        return view('backend.post.edit', $data);
+        return view('backend.posts.edit', $data);
     }
     
     /**
@@ -226,7 +226,7 @@ class PostController extends Controller {
             }
             $postobj->tags()->sync($tagsid);
             
-            return redirect()->route('backend.post.index');
+            return redirect()->route('backend.posts.index');
         } catch(\Exception $exception) {
             return redirect()->back()->withErrors([$exception->getMessage()]);
         }
@@ -242,6 +242,6 @@ class PostController extends Controller {
     public function destroy($id) {
         Post::destroy($id);
         
-        return redirect()->route('backend.post.index');
+        return redirect()->route('backend.posts.index');
     }
 }

@@ -11,31 +11,31 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('backend.category.index')}}" aria-expanded="false">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('backend.categories.index')}}" aria-expanded="false">
                         <i class="mdi mdi-buffer"></i>
                         <span class="hide-menu">Category</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('backend.tag.index')}}" aria-expanded="false">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('backend.tags.index')}}" aria-expanded="false">
                         <i class="mdi mdi-tag"></i>
                         <span class="hide-menu">Tag</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('backend.post.index')}}" aria-expanded="false">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('backend.posts.index')}}" aria-expanded="false">
                         <i class="mdi mdi-file"></i>
                         <span class="hide-menu">Post</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('backend.page.index')}}" aria-expanded="false">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('backend.pages.index')}}" aria-expanded="false">
                         <i class="mdi mdi-web"></i>
                         <span class="hide-menu">Page</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('backend.menu.index')}}" aria-expanded="false">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('backend.menus.index')}}" aria-expanded="false">
                         <i class="mdi mdi-web"></i>
                         <span class="hide-menu">Menu</span>
                     </a>

@@ -19,7 +19,7 @@ class TagController extends Controller {
     public function index() {
         $data['tags'] = Tag::orderBy('id', 'desc')->get();
         
-        return view('backend.tag.index', $data);
+        return view('backend.tags.index', $data);
     }
     
     /**
@@ -28,7 +28,7 @@ class TagController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function create() {
-        return view('backend.tag.create');
+        return view('backend.tags.create');
     }
     
     /**
@@ -49,7 +49,7 @@ class TagController extends Controller {
             $category->created = \Auth::user()->id;
             $category->save();
         
-            return redirect()->route('backend.tag.index');
+            return redirect()->route('backend.tags.index');
         } catch(\Exception $exception) {
             return redirect()->back()->withErrors([$exception->getMessage()]);
         }
@@ -76,7 +76,7 @@ class TagController extends Controller {
     public function edit($id) {
         $data['tag'] = Tag::find($id);
     
-        return view('backend.tag.edit', $data);
+        return view('backend.tags.edit', $data);
     }
     
     /**
@@ -97,7 +97,7 @@ class TagController extends Controller {
             $category->name = strtolower($request->name);
             $category->save();
         
-            return redirect()->route('backend.tag.index');
+            return redirect()->route('backend.tags.index');
         } catch(\Exception $exception) {
             return redirect()->back()->withErrors([$exception->getMessage()]);
         }
@@ -112,6 +112,6 @@ class TagController extends Controller {
      */
     public function destroy($id) {
         Tag::destroy($id);
-        return redirect()->route('backend.tag.index');
+        return redirect()->route('backend.tags.index');
     }
 }

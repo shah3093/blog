@@ -23,7 +23,7 @@ class MenuController extends Controller {
     public function index() {
         $data['menus'] = Menu::with('parent')->orderBy('sort_order', 'asc')->get();
         
-        return view('backend.menu.index', $data);
+        return view('backend.menus.index', $data);
     }
     
     /**
@@ -34,7 +34,7 @@ class MenuController extends Controller {
     public function create() {
         $data['menus'] = Menu::select('id', 'name')->get();
         
-        return view('backend.menu.create', $data);
+        return view('backend.menus.create', $data);
     }
     
     public function getMenyTypes(Request $request) {
@@ -48,7 +48,7 @@ class MenuController extends Controller {
             $data['posts'] = Post::select("id", "title", "slug")->get();
         }
         
-        return (string)view('backend.menu.type', $data);
+        return (string)view('backend.menus.type', $data);
     }
     
     /**
@@ -75,7 +75,7 @@ class MenuController extends Controller {
             $menu->menu_type = $request->menu_type;
             $menu->save();
             
-            return redirect()->route('backend.menu.index');
+            return redirect()->route('backend.menus.index');
         } catch(\Exception $exception) {
             return redirect()->back()->withErrors([$exception->getMessage()]);
         }
@@ -113,7 +113,7 @@ class MenuController extends Controller {
             $data['posts'] = Post::select("id", "title", "slug")->get();
         }
         
-        return view('backend.menu.edit', $data);
+        return view('backend.menus.edit', $data);
     }
     
     /**
@@ -141,7 +141,7 @@ class MenuController extends Controller {
             $menu->menu_type = $request->menu_type;
             $menu->update();
             
-            return redirect()->route('backend.menu.index');
+            return redirect()->route('backend.menus.index');
         } catch(\Exception $exception) {
             return redirect()->back()->withErrors([$exception->getMessage()]);
         }
@@ -157,6 +157,6 @@ class MenuController extends Controller {
     public function destroy($id) {
         Menu::destroy($id);
     
-        return redirect()->route('backend.menu.index');
+        return redirect()->route('backend.menus.index');
     }
 }

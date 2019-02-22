@@ -1,7 +1,7 @@
 @extends('frontend.layouts.mastar')
 
 @section('top-categories')
-    <section class="site-section pt-5">
+    <section class="site-section pt-5 d-none d-sm-none d-md-none d-lg-block">
         <div class="container">
             <div class="row owl-carousel owl-theme">
                 @foreach($categoriesTopPage as $category)
@@ -49,7 +49,7 @@
     <section class="site-section py-sm">
         <div class="container">
             <div class="row blog-entries">
-                <div class="col-md-12 col-lg-8 main-content">
+                <div class="col main-content">
 
                     <div class="row">
                         @foreach($posts as $post)
@@ -71,17 +71,17 @@
                                             <span class="category">
                                                 {{$post->category->name}}
                                             </span>
-                                            <span class="mr-2">{{$post->created_at}} </span> &bullet;
-                                            <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
+                                            <span class="mr-2">{{$post->created_at}} </span>
                                         </div>
                                         <h2>{{$post->title}}</h2>
+                                        <p>{{$post->excerpt}}</p>
                                     </div>
                                 </a>
                             </div>
                         @endforeach
                     </div>
                     <div class="row">
-                        <div class="col-md-12 text-center">
+                        <div class="col text-center">
                             <nav aria-label="Page navigation" class="text-center">
                                 {{ $posts->links('frontend.partials.template-paginate') }}
                             </nav>

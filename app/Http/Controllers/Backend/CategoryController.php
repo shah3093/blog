@@ -21,7 +21,7 @@ class CategoryController extends Controller {
     public function index() {
         $data['categories'] = Category::orderBy('id', 'desc')->get();
         
-        return view('backend.category.index', $data);
+        return view('backend.categories.index', $data);
     }
     
     /**
@@ -30,7 +30,7 @@ class CategoryController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function create() {
-        return view('backend.category.create');
+        return view('backend.categories.create');
     }
     
     /**
@@ -60,7 +60,7 @@ class CategoryController extends Controller {
                 $category->status = $request->status;
                 $category->save();
                 
-                return redirect()->route('backend.category.index');
+                return redirect()->route('backend.categories.index');
             } catch(\Exception $exception) {
                 return redirect()->back()->withErrors([$exception->getMessage()]);
             }
@@ -90,7 +90,7 @@ class CategoryController extends Controller {
     public function edit($id) {
         $data['category'] = Category::find($id);
         
-        return view('backend.category.edit', $data);
+        return view('backend.categories.edit', $data);
     }
     
     /**
@@ -130,7 +130,7 @@ class CategoryController extends Controller {
             }
             $category->save();
             
-            return redirect()->route('backend.category.index');
+            return redirect()->route('backend.categories.index');
         } catch(\Exception $exception) {
             return redirect()->back()->withErrors([$exception->getMessage()]);
         }
@@ -145,6 +145,6 @@ class CategoryController extends Controller {
      */
     public function destroy($id) {
         Category::destroy($id);
-        return redirect()->route('backend.category.index');
+        return redirect()->route('backend.categories.index');
     }
 }

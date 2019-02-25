@@ -18,17 +18,6 @@
     </div>
 @endsection
 
-@section('stylesheet')
-    <link href="{{URL::asset("backend/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css")}}" rel="stylesheet">
-@endsection
-
-@section('script')
-    <script src="{{URL::asset('backend/assets/extra-libs/DataTables/datatables.min.js')}}"></script>
-    <script>
-        $('#zero_config').DataTable();
-    </script>
-@endsection
-
 @section('content')
     <div class="card">
         <div class="card-body">

@@ -78,6 +78,8 @@
                                         <option value=""> Select menu type</option>
                                         <option {{ "home" == $menu->menu_type ? "selected":"" }} value="home"> Home
                                         </option>
+                                        <option {{ "name" == $menu->menu_type ? "selected":"" }} value="name"> Name
+                                        </option>
                                         <option {{ "page" == $menu->menu_type ? "selected":"" }} value="page"> Page
                                         </option>
                                         <option {{ "category" == $menu->menu_type ? "selected":"" }} value="category">
@@ -100,7 +102,9 @@
                                     <span id="menuitemdiv">
                                         @if($menu->menu_type == "home")
                                             <input type="text" readonly value="home" class="required form-control" name="menu_url" id="menuitem"/>
-                                        @elseif($menu->menu_type == "contact")
+                                        @elseif($menu->menu_type == "name")
+                                            <input type="text" readonly value="#" class="required form-control" name="menu_url" id="menuitem"/>
+                                         @elseif($menu->menu_type == "contact")
                                             <input type="text" readonly value="contact" class="required form-control" name="menu_url" id="menuitem"/>
                                         @elseif($menu->menu_type == "custom")
                                             <input type="url" value="" class="required form-control" name="menu_url" id="menuitem"/>
@@ -172,30 +176,4 @@
         </div>
     </div>
 
-@endsection
-
-@section('stylesheet')
-    <link href="{{URL::asset("backend/assets/libs/select2/dist/css/select2.min.css")}}" rel="stylesheet">
-@endsection
-
-@section('script')
-    <script src="{{URL::asset('backend/assets/libs/select2/dist/js/select2.min.js')}}"></script>
-    <script src="{{URL::asset('backend/custom/scripts/custom.js')}}"></script>
-
-    <script>
-        $(function () {
-            $("#menu_type").on("change", function (event) {
-                event.preventDefault();
-                if ($(this).val() != "") {
-                    $.post("{{route('backend.getMenyTypes')}}", {
-                        'type': $(this).val(),
-                        '_token': "{{csrf_token()}}"
-                    }, function (re) {
-                        $("#menuitemdiv").empty();
-                        $("#menuitemdiv").html(re);
-                    });
-                }
-            });
-        });
-    </script>
 @endsection

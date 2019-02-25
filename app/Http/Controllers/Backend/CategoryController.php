@@ -30,7 +30,9 @@ class CategoryController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function create() {
-        return view('backend.categories.create');
+        $data['categories'] = Category::get();
+        
+        return view('backend.categories.create', $data);
     }
     
     /**
@@ -58,6 +60,10 @@ class CategoryController extends Controller {
                 $category->featuredImage = $path;
                 $category->homepageTop = $request->homepageTop;
                 $category->status = $request->status;
+                $category->parent_id = $request->parent_id;
+                $category->series = $request->series;
+                $category->seo_descriptions = $request->seo_descriptions;
+                $category->seo_keywords = $request->seo_keywords;
                 $category->save();
                 
                 return redirect()->route('backend.categories.index');
@@ -89,6 +95,7 @@ class CategoryController extends Controller {
      */
     public function edit($id) {
         $data['category'] = Category::find($id);
+        $data['categories'] = Category::get();
         
         return view('backend.categories.edit', $data);
     }
@@ -106,7 +113,7 @@ class CategoryController extends Controller {
             'name'  => 'required|unique:categories,name,'.$id,
             'image' => 'image',
         ]);
-    
+        
         $category = Category::find($id);
         
         $image = $request->file('image');
@@ -125,6 +132,10 @@ class CategoryController extends Controller {
             $category->description = $request->description;
             $category->homepageTop = $request->homepageTop;
             $category->status = $request->status;
+            $category->parent_id = $request->parent_id;
+            $category->series = $request->series;
+            $category->seo_descriptions = $request->seo_descriptions;
+            $category->seo_keywords = $request->seo_keywords;
             if($path != "") {
                 $category->featuredImage = $path;
             }
@@ -145,6 +156,7 @@ class CategoryController extends Controller {
      */
     public function destroy($id) {
         Category::destroy($id);
+        
         return redirect()->route('backend.categories.index');
     }
 }

@@ -6,10 +6,7 @@ use App\Models\Menu;
 use Illuminate\View\View;
 
 class MenuComposer {
-    /**
-     * The user repository implementation.
-     *
-     */
+    
     protected $menustr = "";
     
     /**
@@ -28,8 +25,8 @@ class MenuComposer {
         foreach($menus as $key => $menu) {
             $hassubmenu = $this->submenucheck($menu->id);
             if(($hassubmenu == true) && ($menu->parent_id == null)) {
-                $this->menustr .= '<li class="nav-item dropdown custom-dropdown">';
-                $this->menustr .= '<a class="nav-link dropdown-toggle" href="#" id="dropdown'.$key.'" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';
+                $this->menustr .= '<li class="nav-item custom-nav dropdown custom-dropdown">';
+                $this->menustr .= '<a class="nav-link dropdown-toggle custom-nav" href="#" id="dropdown'.$key.'" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';
                 $this->menustr .= $menu->name."</a>";
                 $this->menustr .= '<div class="dropdown-menu custom-dropdown-show" aria-labelledby="dropdown'.$key.'">';
                 $this->menustr .= '<div class="row">';
@@ -38,12 +35,12 @@ class MenuComposer {
                 
             } elseif(($hassubmenu == false) && ($menu->parent_id == null)) {
                 $this->menustr .= '<li class="nav-item">';
-                if($menu->menu_type != "custom") {
-                    $this->menustr .= '<a class="nav-link active" href="'.url($menu->menu_url).'">';
+                if($menu->menu_type != "custom" && $menu->menu_type != "name") {
+                    $this->menustr .= '<a class="nav-link custom-nav" href="'.url($menu->menu_url).'">';
                     $this->menustr .= $menu->name;
                     $this->menustr .= '</a>';
                 } else {
-                    $this->menustr .= '<a class="nav-link active" href="'.$menu->menu_url.'">';
+                    $this->menustr .= '<a class="nav-link " href="'.$menu->menu_url.'">';
                     $this->menustr .= $menu->name;
                     $this->menustr .= '</a>';
                 }
@@ -67,8 +64,8 @@ class MenuComposer {
         $submenustr = "";
         $menus = Menu::where("parent_id", $parentid)->get();
         foreach($menus as $menu) {
-            $url = $menu->menu_type == "cutom" ? $menu->menu_url : url($menu->menu_url);
-            $submenustr .= '<div class="col">';
+            $url = ($menu->menu_type == "cutom" || $menu->menu_type == "name") ? $menu->menu_url : url($menu->menu_url);
+            $submenustr .= '<div class="col-md-3">';
             $submenustr .= '<a class="dropdown-item" href="'.$url.'">'.$menu->name.'</a>';
             $submenustr .= $this->sub_submenugenerator($menu->id);
             $submenustr .= '</div>';
@@ -82,7 +79,7 @@ class MenuComposer {
         $menus = Menu::where("parent_id", $parentid)->get();
         $submenustr .= '<div class="child-nav">';
         foreach($menus as $menu) {
-            $url = $menu->menu_type == "cutom" ? $menu->menu_url : url($menu->menu_url);
+            $url = ($menu->menu_type == "cutom" || $menu->menu_type == "name")  ? $menu->menu_url : url($menu->menu_url);
             $submenustr .= '<a class="dropdown-item child-nav" href="'.$url.'">'.$menu->name.'</a>';
             $submenustr .= $this->sub_submenugenerator($menu->id);
         }

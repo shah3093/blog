@@ -75,6 +75,8 @@
                                         <option value=""> Select menu type</option>
                                         <option {{ "home" == old('menu_type') ? "selected":"" }} value="home"> Home
                                         </option>
+                                        <option {{ "name" == old('menu_type') ? "selected":"" }} value="name"> Name
+                                        </option>
                                         <option {{ "page" == old('menu_type') ? "selected":"" }} value="page"> Page
                                         </option>
                                         <option {{ "category" == old('menu_type') ? "selected":"" }} value="category">
@@ -144,13 +146,7 @@
 
 @endsection
 
-@section('stylesheet')
-    <link href="{{URL::asset("backend/assets/libs/select2/dist/css/select2.min.css")}}" rel="stylesheet">
-@endsection
-
 @section('script')
-    <script src="{{URL::asset('backend/assets/libs/select2/dist/js/select2.min.js')}}"></script>
-    <script src="{{URL::asset('backend/custom/scripts/custom.js')}}"></script>
 
     <script>
         $(function () {

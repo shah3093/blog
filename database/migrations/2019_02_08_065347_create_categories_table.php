@@ -20,12 +20,13 @@ class CreateCategoriesTable extends Migration {
             $table->text('description');
             $table->text('seo_descriptions')->nullable();
             $table->text('seo_keywords')->nullable();
-            $table->boolean('series')->default('0');
             $table->string('featuredImage');
             $table->boolean('homepageTop')->default('0');
             $table->boolean('status')->default('1');
             $table->timestamps();
             $table->softDeletes();
+    
+            $table->foreign('parent_id')->references('id')->on('categories')->onDelete('cascade');
         });
     }
     

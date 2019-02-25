@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Http\View\Composers\SeriesComposer;
 use App\Models\Category;
 use App\Models\Page;
 use App\Models\Post;
@@ -9,6 +10,7 @@ use App\Models\Tag;
 use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\View;
 use Mpdf\Mpdf;
 
 class HomeController extends Controller {
@@ -44,11 +46,18 @@ class HomeController extends Controller {
     public function showcategory($slug) {
         $data = [];
         
+        $data['category'] = Category::where([
+            'slug'   => $slug,
+            'status' => 1
+        ])->first();
+        
+        if($data['category']->series == 1) {
+            return view('frontend.showseries', $data);
+        }
+        
         try {
-            $data['category'] = Category::where([
-                'slug'   => $slug,
-                'status' => 1
-            ])->first();
+            
+            
             $data['posts'] = Post::where([
                 'categoryId' => $data['category']->id,
                 'status'     => 1

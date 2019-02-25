@@ -23,4 +23,25 @@ $(function () {
         }
     });
     
+    $(".select2").select2();
+    
+    /*Delete data sweet alert */
+    $(".deletedatafrm").on("click", function (event) {
+        event.preventDefault();
+        var url = $(this).attr("href");
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this data!",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    $(this).submit();
+                }
+            });
+    });
+    
+    $('#zero_config').DataTable();
+    
 });

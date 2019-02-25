@@ -48,6 +48,42 @@
                             </div>
                         </div>
 
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="name">Parent</label>
+                                    <select name="parent_id" class="form-control select2">
+                                        <option value="">Select category</option>
+                                        @foreach($categories as $cat)
+                                            <option {{$cat->id == $category->parent_id ? "selected":""}} value="{{$cat->id}}">{{$cat->name}}</option>
+                                        @endforeach
+                                    </select>
+
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="name"> Series</label>
+                                    <div class="row">
+
+                                        <div class="col-md-4">
+                                            <div class="custom-control custom-radio">
+                                                <input <?php echo $category->series == 1 ? 'checked' : ''; ?> value="1" type="radio" class="custom-control-input" id="sactive" name="series">
+                                                <label class="custom-control-label" for="sactive">Yes</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="custom-control custom-radio">
+                                                <input <?php echo $category->series == 0 ? 'checked' : ''; ?> value="0" type="radio" class="custom-control-input" id="sinactive" name="series">
+                                                <label class="custom-control-label" for="sinactive">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <label for="name">Name <span class="text-danger">*</span></label>
                             <input type="text" id="name" class="form-control required" value="{{$category->name}}" name="name" placeholder="Name"/>
@@ -120,6 +156,20 @@
                         <div class="form-group">
                             <label for="name">Description </label>
                             <textarea id="editor" name="description" class="form-control" style="height: 300px;">{{$category->description}}</textarea>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="seo_d">SEO Description </label>
+                                    <textarea id="seo_d" name="seo_descriptions" class="form-control" style="height: 150px;">{{$category->seo_descriptions}}</textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="seo_k">SEO Keywords </label>
+                                    <textarea id="seo_k" name="seo_keywords" class="form-control" style="height: 150px;">{{$category->seo_keywords}}</textarea>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="card-footer">

@@ -28,6 +28,7 @@ class AppServiceProvider extends ServiceProvider {
             $view->with($data);
         });
         view()->composer('frontend.partials.header', 'App\Http\View\Composers\MenuComposer');
+        view()->composer('frontend.showseries',"App\Http\View\Composers\SeriesComposer");
         
     }
     

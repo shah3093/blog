@@ -1,5 +1,7 @@
 @if($type == "home")
     <input type="text" readonly value="home" class="required form-control" name="menu_url" id="menuitem"/>
+@elseif($type == "name")
+    <input type="text" readonly value="#" class="required form-control" name="menu_url" id="menuitem"/>
 @elseif($type == "contact")
     <input type="text" readonly value="contact" class="required form-control" name="menu_url" id="menuitem"/>
 @elseif($type == "custom")

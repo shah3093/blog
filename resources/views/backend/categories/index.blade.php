@@ -18,17 +18,6 @@
     </div>
 @endsection
 
-@section('stylesheet')
-    <link href="{{URL::asset("backend/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css")}}" rel="stylesheet">
-@endsection
-
-@section('script')
-    <script src="{{URL::asset('backend/assets/extra-libs/DataTables/datatables.min.js')}}"></script>
-    <script>
-        $('#zero_config').DataTable();
-    </script>
-@endsection
-
 @section('content')
     <div class="card">
         <div class="card-body">
@@ -55,6 +44,7 @@
                     <thead>
                     <tr>
                         <th>Name</th>
+                        <th>Parent</th>
                         <th>Status</th>
                         <th>Created by</th>
                         <th>Action</th>
@@ -64,6 +54,7 @@
                     @foreach($categories as $category)
                         <tr>
                             <td>{{$category->name}}</td>
+                            <td>{{$category->parent['name']}}</td>
                             <td>{{$category->status == 1 ? "Active":"Inactive"}}</td>
                             <td>{{$category->created}}</td>
                             <td>

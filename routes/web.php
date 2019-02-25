@@ -40,6 +40,7 @@ Route::name('backend.')->namespace('Backend')->group(function() {
     Route::resource('posts', 'PostController');
     Route::resource('pages', 'PageController');
     Route::resource('menus', 'MenuController');
+    Route::resource('series', 'SeriesController');
     
     Route::post('storefile', 'PostController@storefile')->name('storefile');
     Route::post('deletefile', 'PostController@deletefile')->name('deletefile');

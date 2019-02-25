@@ -22,6 +22,8 @@ class CreateMenusTable extends Migration
             $table->string('name');
             $table->string('menu_type');
             $table->timestamps();
+            
+            $table->foreign('parent_id')->references('id')->on('menus')->onDelete('cascade');
         });
     }
 

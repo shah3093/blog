@@ -14,6 +14,9 @@
 
 
     <link href="{{URL::asset("backend/dist/css/style.min.css")}}" rel="stylesheet">
+    <link href="{{URL::asset("backend/assets/libs/select2/dist/css/select2.min.css")}}" rel="stylesheet">
+
+    <link href="{{URL::asset("backend/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css")}}" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="{{URL::asset("backend/custom/css/custom.css")}}" rel="stylesheet">
@@ -124,28 +127,10 @@
 <script src="{{URL::asset("backend/dist/js/custom.min.js")}}"></script>
 <!--Sweet Alert---->
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="{{URL::asset('backend/assets/libs/select2/dist/js/select2.min.js')}}"></script>
 
-<script>
-
-
-    /*Delete data sweet alert */
-    $(".deletedatafrm").on("click", function (event) {
-        event.preventDefault();
-        var url = $(this).attr("href");
-        swal({
-            title: "Are you sure?",
-            text: "Once deleted, you will not be able to recover this data!",
-            buttons: true,
-            dangerMode: true,
-        })
-            .then((willDelete) => {
-                if (willDelete) {
-                    $(this).submit();
-                }
-            });
-    });
-
-</script>
+<script src="{{URL::asset('backend/assets/extra-libs/DataTables/datatables.min.js')}}"></script>
+<script src="{{URL::asset("backend/custom/scripts/custom.js")}}"></script>
 
 @yield('script')
 

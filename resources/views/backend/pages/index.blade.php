@@ -44,7 +44,6 @@
                     <thead>
                     <tr>
                         <th>Title</th>
-                        <th>Parent</th>
                         <th>Status</th>
                         <th>Created by</th>
                         <th>Action</th>
@@ -54,7 +53,6 @@
                     @foreach($pages as $page)
                         <tr>
                             <td>{{$page->title}}</td>
-                            <td>{{$page->parent['title']}}</td>
                             <td>{{$page->status == 1 ? "Active":"Inactive"}}</td>
                             <td>{{$page->created}}</td>
                             <td>

@@ -55,7 +55,7 @@
                     @foreach($posts as $post)
                         <tr>
                             <td>{{$post->title}}</td>
-                            <td>{{$post->category->name}}</td>
+                            <td>{{isset($post->category->name)?$post->category->name:""}}</td>
                             <td>{{$post->status == 1 ? "Active":"Inactive"}}</td>
                             <td>{{$post->published == 1 ? "Published":"Draft"}}</td>
                             <td>{{$post->created}}</td>

@@ -190,7 +190,7 @@
                     $("#sort_order").val("");
                     $("#series_id option:selected").removeAttr("selected");
                 }
-            })
+            });
         });
     </script>
 @endsection

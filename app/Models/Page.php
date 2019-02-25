@@ -25,12 +25,4 @@ class Page extends Model
             $page->slug = strtolower(preg_replace('/\s+/u', '-', trim($title)));
         });
     }
-    
-    public function parent(){
-        return $this->belongsTo('App\Models\Page','parent_id');
-    }
-    
-    public function page(){
-        return $this->hasMany('App\Models\Page','parent_id');
-    }
 }

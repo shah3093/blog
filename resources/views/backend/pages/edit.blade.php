@@ -30,17 +30,6 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="form-group">
-                            <label for="parent">Parent page</label>
-                            <select id="parent" name="data[parent_id]" class="form-control">
-                                <option value="">Select page</option>
-                                @foreach($pages as $result)
-                                    @if($result->id != $page->id)
-                                        <option {{$result->id == $page->parent_id ? 'selected':''}} value="{{$result->id}}">{{$result->title}}</option>
-                                    @endif
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="form-group">
                             <label for="title">Title <span class="text-danger">*</span></label>
                             <input type="text" id="title" class="form-control " value="{{$page->title}}" name="data[title]" placeholder="TItle.."/>
                         </div>

@@ -31,7 +31,7 @@
                     <div class="card-body">
                         <div class="form-group">
                             <label for="category">Category <span class="text-danger">*</span></label>
-                            <select id="category" name="data[categoryId]" class="form-control required">
+                            <select id="category" name="data[categoryId]" class="form-control">
                                 <option value="">Select category</option>
                                 @foreach($categories as $category)
                                     <option {{$category->id == $post->categoryId ? 'selected':''}} value="{{$category->id}}">{{$category->name}}</option>
@@ -147,6 +147,31 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <div class="custom-control custom-checkbox mr-sm-2">
+                                        <input {{$isSeries == 1 ? 'checked':''}} type="checkbox" class="custom-control-input" id="isseries">
+                                        <label class="custom-control-label" for="isseries">Series</label>
+                                    </div>
+                                </div>
+                                <div id="seriesdiv" class="row {{$isSeries == 1 ? '':'hide'}}">
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <label for="series_id">Series</label>
+                                            <select id="series_id" name="series_id" class="form-control">
+                                                <option value="">Select series</option>
+                                                @foreach($series as $se)
+                                                    <option {{$seriesid == $se->id ? "selected":""}}  value="{{$se->id}}">{{$se->name}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="sort_order">Sort order</label>
+                                            <input type="number" id="sort_order" class="form-control" value="{{$sort_order}}" name="sort_order"/>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -259,5 +284,15 @@
                 reader.readAsDataURL(input.files[0]);
             }
         }
+
+        $("#isseries").on("click", function (e) {
+            if ($(this).is(':checked')) {
+                $("#seriesdiv").removeClass("hide");
+            } else {
+                $("#seriesdiv").addClass("hide");
+                $("#sort_order").val("");
+                $("#series_id option:selected").removeAttr("selected");
+            }
+        });
     </script>
 @endsection

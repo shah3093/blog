@@ -20,7 +20,7 @@ class PageController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        $data['pages'] = Page::with('parent')->orderBy('id', 'desc')->get();
+        $data['pages'] = Page::orderBy('id', 'desc')->get();
         
         return view('backend.pages.index', $data);
     }
@@ -31,9 +31,7 @@ class PageController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function create() {
-        $data['pages'] = Page::select('id', 'title')->get();
-        
-        return view('backend.pages.create', $data);
+        return view('backend.pages.create');
     }
     
     /**
@@ -92,8 +90,6 @@ class PageController extends Controller {
      */
     public function edit($id) {
         $data['page'] = Page::find($id);
-        $data['pages'] = Page::select('id', 'title')->get();
-        
         return view('backend.pages.edit', $data);
     }
     

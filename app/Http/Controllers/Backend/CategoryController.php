@@ -152,11 +152,11 @@ class CategoryController extends Controller {
                 $category->featuredImage = $path;
             }
             $category->save();
-    
-            if($request->series_id != null) {
-                $category->series()->sync($request->series_id);
-                $category->series()->updateExistingPivot($request->series_id, ['sort_order' => $request->sort_order]);
-            }
+            
+            $sort_order = $request->sort_order != null ? $request->sort_order : 0;
+            $category->series()->sync($request->series_id);
+            $category->series()->updateExistingPivot($request->series_id, ['sort_order' => $request->sort_order]);
+            
             
             return redirect()->route('backend.categories.index');
         } catch(\Exception $exception) {

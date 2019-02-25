@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Models\Category;
 use App\Models\Files;
 use App\Models\Post;
+use App\Models\Series;
 use App\Models\Tag;
 use DebugBar\DebugBar;
 use http\Env\Response;
@@ -37,6 +38,7 @@ class PostController extends Controller {
     public function create() {
         $data['categories'] = Category::select('id', 'name')->get();
         $data['tags'] = Tag::select('name')->get();
+        $data['series'] = Series::get();
         
         return view('backend.posts.create', $data);
     }
@@ -94,10 +96,9 @@ class PostController extends Controller {
      */
     public function store(Request $request) {
         $validatedData = $request->validate([
-            'data.title'      => 'required|unique:posts,title',
-            'data.categoryId' => 'required',
-            'data.content'    => 'required',
-            'image'           => 'required|image',
+            'data.title'   => 'required|unique:posts,title',
+            'data.content' => 'required',
+            'image'        => 'required|image',
         ]);
         
         $image = $request->file('image');
@@ -112,6 +113,10 @@ class PostController extends Controller {
                 $data = $request->input('data');
                 $data = array_merge($data, $data2);
                 $post = Post::create($data);
+                
+                if($request->series_id != null) {
+                    $post->series()->attach($request->series_id, ['sort_order' => $request->sort_order]);
+                }
                 
                 $tags = explode(",", $request->tags);
                 
@@ -156,9 +161,18 @@ class PostController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function edit($id) {
-        $post = $data['post'] = Post::with('category')->find($id);
+        $post = $data['post'] = Post::with('category', 'series')->find($id);
         $data['categories'] = Category::select('id', 'name')->get();
         $data['tags'] = Tag::select('name')->get();
+        $data['series'] = Series::get();
+        
+        $isSeries = $data['isSeries'] = isset($post->series[0]->name) ? 1 : 0;
+        $data['seriesid'] = "";
+        $data['sort_order'] = 0;
+        if($isSeries == 1) {
+            $data['seriesid'] = $data['post']->series[0]->pivot->series_id;
+            $data['sort_order'] = $data['post']->series[0]->pivot->sort_order;
+        }
         
         $tagstr = "";
         foreach($post->tags as $tag) {
@@ -180,9 +194,8 @@ class PostController extends Controller {
      */
     public function update(Request $request, $id) {
         $validatedData = $request->validate([
-            'data.title'      => 'required|unique:posts,title,'.$id,
-            'data.categoryId' => 'required',
-            'data.content'    => 'required'
+            'data.title'   => 'required|unique:posts,title,'.$id,
+            'data.content' => 'required'
         ]);
         
         $post = $postobj = Post::find($id);
@@ -209,6 +222,12 @@ class PostController extends Controller {
             $data = $request->input('data');
             $data = array_merge($data, $data2);
             $post = Post::where('id', $id)->update($data);
+            
+            $sort_order = $request->sort_order != null ? $request->sort_order : 0;
+            $postobj->series()->sync($request->series_id);
+            $postobj->series()->updateExistingPivot($request->series_id, ['sort_order' => $sort_order]);
+            
+            
             $tags = explode(",", $request->tags);
             $tagsid = [];
             
@@ -225,6 +244,7 @@ class PostController extends Controller {
                 }
             }
             $postobj->tags()->sync($tagsid);
+            
             
             return redirect()->route('backend.posts.index');
         } catch(\Exception $exception) {

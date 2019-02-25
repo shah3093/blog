@@ -25,4 +25,8 @@ class Series extends Model
             $series->slug = strtolower(preg_replace('/\s+/u', '-', trim($name)));
         });
     }
+    
+    public function categories(){
+        return $this->morphToMany(Category::class,'seriesable')->withPivot('sort_order');
+    }
 }

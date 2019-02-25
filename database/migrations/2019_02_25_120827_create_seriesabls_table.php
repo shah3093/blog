@@ -13,11 +13,11 @@ class CreateSeriesablsTable extends Migration
      */
     public function up()
     {
-        Schema::create('seriesabls', function (Blueprint $table) {
+        Schema::create('seriesables', function (Blueprint $table) {
             $table->integer('series_id');
             $table->integer('seriesable_id');
             $table->string('seriesable_type');
-            $table->integer('sort_order');
+            $table->integer('sort_order')->default(0);
         });
     }
 

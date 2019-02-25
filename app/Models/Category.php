@@ -38,4 +38,8 @@ class Category extends Model
     public function menu(){
         return $this->hasMany('App\Models\Category','parent_id');
     }
+    
+    public function series(){
+        return $this->morphToMany(Series::class,'seriesable')->withPivot('sort_order');
+    }
 }

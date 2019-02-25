@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Models\Category;
+use App\Models\Series;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
@@ -31,6 +32,7 @@ class CategoryController extends Controller {
      */
     public function create() {
         $data['categories'] = Category::get();
+        $data['series'] = Series::get();
         
         return view('backend.categories.create', $data);
     }
@@ -61,10 +63,14 @@ class CategoryController extends Controller {
                 $category->homepageTop = $request->homepageTop;
                 $category->status = $request->status;
                 $category->parent_id = $request->parent_id;
-                $category->series = $request->series;
                 $category->seo_descriptions = $request->seo_descriptions;
                 $category->seo_keywords = $request->seo_keywords;
                 $category->save();
+                
+                if($request->series_id != null) {
+                    $category->series()->attach($request->series_id, ['sort_order' => $request->sort_order]);
+                }
+                
                 
                 return redirect()->route('backend.categories.index');
             } catch(\Exception $exception) {
@@ -94,8 +100,15 @@ class CategoryController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function edit($id) {
-        $data['category'] = Category::find($id);
-        $data['categories'] = Category::get();
+        $data['category'] = Category::with('series')->find($id);
+        $isSeries = $data['isSeries'] = isset($data['category']->series[0]->name) ? 1 : 0;
+        $data['seriesid'] = "";
+        $data['sort_order'] = 0;
+        if($isSeries == 1) {
+            $data['seriesid'] = $data['category']->series[0]->pivot->series_id;
+            $data['sort_order'] = $data['category']->series[0]->pivot->sort_order;
+        }
+        $data['series'] = Series::get();
         
         return view('backend.categories.edit', $data);
     }
@@ -133,13 +146,17 @@ class CategoryController extends Controller {
             $category->homepageTop = $request->homepageTop;
             $category->status = $request->status;
             $category->parent_id = $request->parent_id;
-            $category->series = $request->series;
             $category->seo_descriptions = $request->seo_descriptions;
             $category->seo_keywords = $request->seo_keywords;
             if($path != "") {
                 $category->featuredImage = $path;
             }
             $category->save();
+    
+            if($request->series_id != null) {
+                $category->series()->sync($request->series_id);
+                $category->series()->updateExistingPivot($request->series_id, ['sort_order' => $request->sort_order]);
+            }
             
             return redirect()->route('backend.categories.index');
         } catch(\Exception $exception) {

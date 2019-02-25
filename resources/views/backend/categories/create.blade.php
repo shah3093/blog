@@ -62,31 +62,12 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="name"> Series</label>
-                                    <div class="row">
-
-                                        <div class="col-md-4">
-                                            <div class="custom-control custom-radio">
-                                                <input value="1" type="radio" class="custom-control-input" id="sactive" name="series">
-                                                <label class="custom-control-label" for="sactive">Yes</label>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-4">
-                                            <div class="custom-control custom-radio">
-                                                <input checked value="0" type="radio" class="custom-control-input" id="sinactive" name="series">
-                                                <label class="custom-control-label" for="sinactive">No</label>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <label for="name">Name <span class="text-danger">*</span></label>
+                                    <input type="text" id="name" class="form-control required" value="{{old('name')}}" name="name" placeholder="Name"/>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="name">Name <span class="text-danger">*</span></label>
-                            <input type="text" id="name" class="form-control required" value="{{old('name')}}" name="name" placeholder="Name"/>
-                        </div>
 
                         <div class="row">
                             <div class="col-md-4">
@@ -142,6 +123,31 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <div class="custom-control custom-checkbox mr-sm-2">
+                                <input type="checkbox" class="custom-control-input" id="isseries">
+                                <label class="custom-control-label" for="isseries">Series</label>
+                            </div>
+                        </div>
+                        <div id="seriesdiv" class="row hide">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="series_id">Series</label>
+                                    <select id="series_id" name="series_id" class="form-control">
+                                        <option value="">Select series</option>
+                                        @foreach($series as $se)
+                                            <option value="{{$se->id}}">{{$se->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="sort_order">Sort order</label>
+                                    <input type="number" id="sort_order" class="form-control required" value="{{old('sort_order')}}" name="sort_order"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label for="name">Description </label>
                             <textarea id="editor" name="description" class="form-control" style="height: 300px;">{{old('description')}}</textarea>
                         </div>
@@ -174,6 +180,17 @@
 
 
 @section('script')
-    <script src="{{URL::asset('backend/custom/scripts/custom.js')}}"></script>
-
+    <script>
+        $(function () {
+            $("#isseries").on("click", function (e) {
+                if ($(this).is(':checked')) {
+                    $("#seriesdiv").removeClass("hide");
+                } else {
+                    $("#seriesdiv").addClass("hide");
+                    $("#sort_order").val("");
+                    $("#series_id option:selected").removeAttr("selected");
+                }
+            })
+        });
+    </script>
 @endsection

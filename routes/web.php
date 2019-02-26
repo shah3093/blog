@@ -45,4 +45,11 @@ Route::name('backend.')->namespace('Backend')->group(function() {
     Route::post('storefile', 'PostController@storefile')->name('storefile');
     Route::post('deletefile', 'PostController@deletefile')->name('deletefile');
     Route::post('getMenyTypes', 'MenuController@getMenyTypes')->name('getMenyTypes');
+    Route::get('serieslist/{id}', 'SeriesController@getSeriesList')->name('serieslist');
+    
+    
+    Route::post('postedit', 'SeriesController@editpostorder')->name('postedit');
+    Route::post('categoryedit', 'SeriesController@editcategororder')->name('categoryedit');
+    Route::post('categoryadd', 'SeriesController@addCategorySeries')->name('categoryadd');
+    Route::delete('deletecategoryseries/{id}', 'SeriesController@deletecategoryseries')->name('deletecategoryseries');
 });

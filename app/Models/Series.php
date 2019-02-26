@@ -27,10 +27,6 @@ class Series extends Model
     }
     
     public function categories(){
-        return $this->morphToMany(Category::class,'seriesable')->withPivot('sort_order');
-    }
-    
-    public function posts(){
-        return $this->morphToMany(Post::class,'seriesable')->withPivot('sort_order');
+        return $this->morphedByMany(Category::class,'seriesable')->withPivot('sort_order');
     }
 }

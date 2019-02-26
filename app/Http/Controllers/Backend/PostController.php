@@ -114,10 +114,6 @@ class PostController extends Controller {
                 $data = array_merge($data, $data2);
                 $post = Post::create($data);
                 
-                if($request->series_id != null) {
-                    $post->series()->attach($request->series_id, ['sort_order' => $request->sort_order]);
-                }
-                
                 $tags = explode(",", $request->tags);
                 
                 foreach($tags as $data) {
@@ -161,18 +157,10 @@ class PostController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function edit($id) {
-        $post = $data['post'] = Post::with('category', 'series')->find($id);
+        $post = $data['post'] = Post::with('category')->find($id);
         $data['categories'] = Category::select('id', 'name')->get();
         $data['tags'] = Tag::select('name')->get();
         $data['series'] = Series::get();
-        
-        $isSeries = $data['isSeries'] = isset($post->series[0]->name) ? 1 : 0;
-        $data['seriesid'] = "";
-        $data['sort_order'] = 0;
-        if($isSeries == 1) {
-            $data['seriesid'] = $data['post']->series[0]->pivot->series_id;
-            $data['sort_order'] = $data['post']->series[0]->pivot->sort_order;
-        }
         
         $tagstr = "";
         foreach($post->tags as $tag) {
@@ -222,11 +210,6 @@ class PostController extends Controller {
             $data = $request->input('data');
             $data = array_merge($data, $data2);
             $post = Post::where('id', $id)->update($data);
-            
-            $sort_order = $request->sort_order != null ? $request->sort_order : 0;
-            $postobj->series()->sync($request->series_id);
-            $postobj->series()->updateExistingPivot($request->series_id, ['sort_order' => $sort_order]);
-            
             
             $tags = explode(",", $request->tags);
             $tagsid = [];

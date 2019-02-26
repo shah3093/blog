@@ -42,8 +42,4 @@ class Post extends Model
     {
         return $this->morphToMany(Tag::class, 'taggable');
     }
-    
-    public function series(){
-        return $this->morphToMany(Series::class,'seriesable')->withPivot('sort_order');
-    }
 }

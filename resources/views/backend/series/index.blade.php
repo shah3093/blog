@@ -46,6 +46,7 @@
                         <th>Name</th>
                         <th>Status</th>
                         <th>Created by</th>
+                        <th>List</th>
                         <th>Action</th>
                     </tr>
                     </thead>
@@ -56,6 +57,12 @@
                             <td>{{$se->status == 1 ? "Active":"Inactive"}}</td>
                             <td>{{$se->created}}</td>
                             <td>
+                                <a href="{{route('backend.serieslist',['id'=>$se->id])}}" type="button" class="btn btn-success ">
+                                    <i class="mdi mdi-view-list"></i>
+                                </a>
+                            </td>
+                            <td>
+
                                 <a href="{{route('backend.series.edit',['series'=>$se->id])}}" type="button" class="btn btn-primary ">
                                     <i class="mdi mdi-table-edit"></i>
                                 </a>

@@ -60,7 +60,7 @@
                             <td>{{$post->published == 1 ? "Published":"Draft"}}</td>
                             <td>{{$post->created}}</td>
                             <td>
-                                <a href="{{route('backend.posts.edit',['category'=>$post->id])}}" type="button" class="btn btn-primary ">
+                                <a href="{{route('backend.posts.edit',['post'=>$post->id])}}" type="button" class="btn btn-primary ">
                                     <i class="mdi mdi-table-edit"></i>
                                 </a>
                                 <form class="deletedatafrm btn" action="{{route('backend.posts.destroy',['post'=>$post->id])}}" method="POST">

@@ -11,6 +11,36 @@
         </form>
     </div>
 
+
+    <div class="sidebar-box">
+        <h3 class="heading">Series</h3>
+        <ul class="categories">
+            @foreach($all_series as $series)
+                <li><a href="{{route('aseries',['sslug'=>$series->slug])}}">{{$series->name}}</a></li>
+            @endforeach
+        </ul>
+    </div>
+
+    <div class="sidebar-box">
+        <h3 class="heading">Categories</h3>
+        <ul class="categories">
+
+            @foreach($all_categories as $category)
+                <li><a href="{{route('category',['slug'=>$category->slug])}}">{{$category->name}}
+                        <span>({{count($category->posts)}})</span></a></li>
+            @endforeach
+        </ul>
+    </div>
+
+    <div class="sidebar-box  d-none d-sm-none d-md-block">
+        <h3 class="heading">Tags</h3>
+        <ul class="tags">
+            @foreach($all_tags as $tag)
+                <li><a href="{{route('tag',['name'=>$tag->name])}}">{{$tag->name}}</a></li>
+            @endforeach
+        </ul>
+    </div>
+
     <div class="sidebar-box d-none d-sm-none d-md-block ">
         <h3 class="heading">Popular Posts</h3>
         <div class="post-entry-sidebar">
@@ -42,25 +72,5 @@
 
             </ul>
         </div>
-    </div>
-
-    <div class="sidebar-box">
-        <h3 class="heading">Categories</h3>
-        <ul class="categories">
-
-            @foreach($all_categories as $category)
-                <li><a href="{{route('category',['slug'=>$category->slug])}}">{{$category->name}}
-                        <span>({{count($category->posts)}})</span></a></li>
-            @endforeach
-        </ul>
-    </div>
-
-    <div class="sidebar-box  d-none d-sm-none d-md-block">
-        <h3 class="heading">Tags</h3>
-        <ul class="tags">
-            @foreach($all_tags as $tag)
-                <li><a href="{{route('tag',['name'=>$tag->name])}}">{{$tag->name}}</a></li>
-            @endforeach
-        </ul>
     </div>
 </div>

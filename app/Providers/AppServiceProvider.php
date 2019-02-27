@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\Series;
 use App\Models\Tag;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\View;
@@ -25,11 +26,10 @@ class AppServiceProvider extends ServiceProvider {
             ])->limit(5)->get();
             $data['all_categories'] = Category::with('posts')->where('status', 1)->get();
             $data['all_tags'] = Tag::select('name')->get();
+            $data['all_series'] = Series::has('categories')->select('name','slug')->get();
             $view->with($data);
         });
         view()->composer('frontend.partials.header', 'App\Http\View\Composers\MenuComposer');
-        view()->composer('frontend.showseries',"App\Http\View\Composers\SeriesComposer");
-        
     }
     
     /**

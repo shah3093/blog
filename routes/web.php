@@ -19,6 +19,7 @@ Route::namespace('Frontend')->group(function() {
     Route::get('category/{slug}', 'HomeController@showcategory')->name('category');
     Route::get('page/{slug}', 'HomeController@showpage')->name('page');
     Route::get('tag/{name}', 'HomeController@showtag')->name('tag');
+    Route::get('aseries/{sslug}/{catslug?}/{pslug?}', 'HomeController@showseries')->name('aseries');
     Route::get('contact', 'HomeController@contact')->name('contact');
     Route::get('pdf/{type}/{slug}', 'HomeController@generatepdf')->name('pdf');
     

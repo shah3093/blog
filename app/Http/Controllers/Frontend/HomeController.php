@@ -12,16 +12,24 @@ use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\View;
 use Mpdf\Mpdf;
+use PhpParser\Node\Stmt\Case_;
 
 class HomeController extends Controller {
     public function index() {
-        $data['posts'] = Post::with('category')->orderBy('id', 'desc')->paginate(8);
+        $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+        $data['posts'] = Cache::rememberForever('posts'.$currentPage, function() {
+            return Post::with('category')->orderBy('id', 'desc')->paginate(8);
+        });
+        Cache::forever('postTotalPage', $data['posts']->lastPage());
+        
         $data['categoriesTopPage'] = Category::select("slug", "name", "featuredImage")->where([
             "status"      => 1,
             "homepageTop" => 1
         ])->get();
+        
         $data['postsTopPage'] = Post::select("slug", "title", "featuredImage")->where([
             "status"      => 1,
             "homepageTop" => 1
@@ -45,23 +53,23 @@ class HomeController extends Controller {
     
     public function showcategory($slug) {
         $data = [];
-        
-        $data['category'] = Category::where([
-            'slug'   => $slug,
-            'status' => 1
-        ])->first();
-        
-        if($data['category']->series == 1) {
-            return view('frontend.showseries', $data);
-        }
-        
         try {
+            $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+            
+            $data['category'] = Category::where([
+                'slug'   => $slug,
+                'status' => 1
+            ])->first();
             
             
-            $data['posts'] = Post::where([
-                'categoryId' => $data['category']->id,
-                'status'     => 1
-            ])->paginate(10);
+            $data['posts'] = Cache::rememberForever($data['category']->id.'categoryPost'.$currentPage, function() use ($data) {
+                return Post::where([
+                    'categoryId' => $data['category']->id,
+                    'status'     => 1
+                ])->paginate(10);
+            });
+            
+            Cache::forever($data['category']->id.'categoryTotalPostPage', $data['posts']->lastPage());
             
             return view('frontend.showcategory', $data);
         } catch(\Exception $exception) {
@@ -86,10 +94,10 @@ class HomeController extends Controller {
     }
     
     public function showtag($tag) {
-        $data[] = "";
-        $tag = $data['tag'] = Tag::with('posts')->where('name', $tag)->first();
-        $data['posts'] = Tag::find($tag->id)->posts()->paginate(10);
         try {
+            $data[] = "";
+            $tag = $data['tag'] = Tag::with('posts')->where('name', $tag)->first();
+            $data['posts'] = Tag::find($tag->id)->posts()->paginate(10);
             
             return view('frontend.showtag', $data);
         } catch(\Exception $exception) {
@@ -124,18 +132,26 @@ class HomeController extends Controller {
         $data['tmparray'] = [];
         $data['cattmparray'] = [];
         try {
-            $series = $data['series'] = Series::with('categories')->where('slug', $sslug)->first();
-            foreach($series->categories as $key => $category) {
-                $categories[$key]['catid'] = $category->id;
-                $categories[$key]['name'] = $category->name;
-                $categories[$key]['slug'] = $category->name;
-                $categories[$key]['sort_order'] = $category->pivot->sort_order;
-                $categories[$key]['series_id'] = $series->id;
-                $categories[$key]['posts'] = Post::where('categoryId', $category->id)->orderBy('sort_order', 'asc')->get();
-            }
-            $results = $data['results'] = array_values(Arr::sort($categories, function($value) {
-                return $value['sort_order'];
-            }));
+            $cachedata = Cache::rememberForever('series'.$sslug, function() use ($sslug) {
+                $ca = [];
+                $series = $ca['series'] = Series::with('categories')->where('slug', $sslug)->first();
+                foreach($series->categories as $key => $category) {
+                    $categories[$key]['catid'] = $category->id;
+                    $categories[$key]['name'] = $category->name;
+                    $categories[$key]['slug'] = $category->name;
+                    $categories[$key]['sort_order'] = $category->pivot->sort_order;
+                    $categories[$key]['series_id'] = $series->id;
+                    $categories[$key]['posts'] = Post::where('categoryId', $category->id)->orderBy('sort_order', 'asc')->get();
+                }
+                $ca['results'] = array_values(Arr::sort($categories, function($value) {
+                    return $value['sort_order'];
+                }));
+                
+                return $ca;
+            });
+            $data['series'] = $cachedata['series'];
+            $results = $data['results'] = $cachedata['results'];
+            
             if($catsulg == "") {
                 $data['post'] = $results[0]['posts'][0];
                 $data['catid'] = $results[0]['catid'];
@@ -143,13 +159,19 @@ class HomeController extends Controller {
                 foreach($results as $catkey => $result) {
                     if($result['slug'] == $catsulg) {
                         if($pslug != "") {
+                            $check = 0;
                             foreach($result['posts'] as $pkey => $post) {
                                 if($post->slug == $pslug) {
                                     $data['post'] = $post;
                                     $data['catid'] = $result['catid'];
-                                    
+                                    $check = 1;
                                     break;
                                 }
+                            }
+                            if($check == 0) {
+                                $data['post'] = $result['posts'][0];
+                                $data['catid'] = $result['catid'];
+                                break;
                             }
                         } else {
                             $data['post'] = $result['posts'][0];

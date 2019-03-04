@@ -143,7 +143,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="sort_order">Sort order</label>
-                                    <input type="number" id="sort_order" class="form-control required" value="{{old('sort_order')}}" name="sort_order"/>
+                                    <input type="number" id="sort_order" class="form-control" value="{{old('sort_order')}}" name="sort_order"/>
                                 </div>
                             </div>
                         </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Events\SeriesEvent;
 use App\Models\Category;
 use App\Models\Files;
 use App\Models\Post;
@@ -110,7 +111,7 @@ class PostController extends Controller {
                     'created'       => \Auth::id(),
                     'featuredImage' => $path
                 ];
-                $data = $request->input('data');
+                $tmpdata = $data = $request->input('data');
                 $data = array_merge($data, $data2);
                 $post = Post::create($data);
                 
@@ -127,6 +128,12 @@ class PostController extends Controller {
                             $post->tags()->save($tag);
                         }
                     }
+                }
+                
+                if(isset($tmpdata['categoryId'])) {
+                    $category = Category::find($tmpdata['categoryId']);
+                    $series = Series::find($category->series[0]->id);
+                    event(new SeriesEvent($series));
                 }
                 
                 return redirect()->route('backend.posts.index');
@@ -207,7 +214,7 @@ class PostController extends Controller {
         
         try {
             
-            $data = $request->input('data');
+            $tmpdata = $data = $request->input('data');
             $data = array_merge($data, $data2);
             $post = Post::where('id', $id)->update($data);
             
@@ -228,6 +235,11 @@ class PostController extends Controller {
             }
             $postobj->tags()->sync($tagsid);
             
+            if(isset($tmpdata['categoryId'])) {
+                $category = Category::find($tmpdata['categoryId']);
+                $series = Series::find($category->series[0]->id);
+                event(new SeriesEvent($series));
+            }
             
             return redirect()->route('backend.posts.index');
         } catch(\Exception $exception) {
@@ -243,6 +255,13 @@ class PostController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function destroy($id) {
+        $post = Post::find($id);
+        if(isset($data['categoryId'])) {
+            $category = Category::find($post->categoryId);
+            $series = Series::find($category->series[0]->id);
+            event(new SeriesEvent($series));
+        }
+        
         Post::destroy($id);
         
         return redirect()->route('backend.posts.index');

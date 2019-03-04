@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Events\SeriesEvent;
 use App\Models\Category;
 use App\Models\Series;
 use Illuminate\Http\Request;
@@ -71,6 +72,8 @@ class CategoryController extends Controller {
                     $category->series()->attach($request->series_id, ['sort_order' => $request->sort_order]);
                 }
                 
+                $series = Series::find($request->series_id);
+                event(new SeriesEvent($series));
                 
                 return redirect()->route('backend.categories.index');
             } catch(\Exception $exception) {
@@ -157,6 +160,8 @@ class CategoryController extends Controller {
             $category->series()->sync($request->series_id);
             $category->series()->updateExistingPivot($request->series_id, ['sort_order' => $request->sort_order]);
             
+            $series = Series::find($request->series_id);
+            event(new SeriesEvent($series));
             
             return redirect()->route('backend.categories.index');
         } catch(\Exception $exception) {
@@ -172,7 +177,10 @@ class CategoryController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function destroy($id) {
+        $category = Category::find($id);
         Category::destroy($id);
+        $series = Series::find($category->series[0]->id);
+        event(new SeriesEvent($series));
         
         return redirect()->route('backend.categories.index');
     }

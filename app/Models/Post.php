@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Events\PostEvent;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -26,6 +27,12 @@ class Post extends Model
             $post->slug = preg_replace('/\s+/u', '-', trim($title));
         });
     }
+    
+    protected $dispatchesEvents = [
+        'saved' => PostEvent::class,
+        'deleted' => PostEvent::class,
+        'updated' => PostEvent::class,
+    ];
     
     public function category(){
         return $this->belongsTo('App\Models\Category','categoryId');

@@ -3,6 +3,7 @@
 namespace App\Http\View\Composers;
 
 use App\Models\Menu;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\View\View;
 
 class MenuComposer {
@@ -16,7 +17,9 @@ class MenuComposer {
      */
     public function __construct() {
         // Dependencies automatically resolved by service container...
-        $this->menuGenerator();
+        if(!Cache::has('menus')) {
+            $this->menuGenerator();
+        }
     }
     
     public function menuGenerator() {
@@ -96,6 +99,12 @@ class MenuComposer {
      * @return void
      */
     public function compose(View $view) {
-        $view->with('header', $this->menustr);
+        if(Cache::has('menus')) {
+            $this->menustr = Cache::get('menus');
+            $view->with('header', $this->menustr);
+        }else{
+            Cache::forever('menus', $this->menustr);
+            $view->with('header', $this->menustr);
+        }
     }
 }

@@ -83,7 +83,6 @@ class PostController extends Controller {
                 
                 return response()->json($file);
             }
-            
         }
         
     }
@@ -132,8 +131,10 @@ class PostController extends Controller {
                 
                 if(isset($tmpdata['categoryId'])) {
                     $category = Category::find($tmpdata['categoryId']);
-                    $series = Series::find($category->series[0]->id);
-                    event(new SeriesEvent($series));
+                    if(isset($category->series[0]->id)) {
+                        $series = Series::find($category->series[0]->id);
+                        event(new SeriesEvent($series));
+                    }
                 }
                 
                 return redirect()->route('backend.posts.index');
@@ -237,8 +238,11 @@ class PostController extends Controller {
             
             if(isset($tmpdata['categoryId'])) {
                 $category = Category::find($tmpdata['categoryId']);
-                $series = Series::find($category->series[0]->id);
-                event(new SeriesEvent($series));
+                if(isset($category->series[0]->id)) {
+                    $series = Series::find($category->series[0]->id);
+                    event(new SeriesEvent($series));
+                }
+                
             }
             
             return redirect()->route('backend.posts.index');

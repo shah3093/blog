@@ -27,7 +27,9 @@
                     <div class="post-meta">
                         <div class="row">
                             <div class="col-md-6 col-sm-12">
-                                <a class="category" href="{{route('category',['slug'=>$post->category->slug])}}">{{$post->category->name}}</a>
+                                @if(isset($post->category->name))
+                                    <a class="category" href="{{route('category',['slug'=>$post->category->slug])}}">{{$post->category->name}}</a>
+                                @endif
                                 <span class="mr-2">{{$post->created_at}} </span>
                                 @if($post->tags->count() > 0)
                                     <div>
@@ -95,7 +97,7 @@
             <div class="row">
                 @foreach($releteadposts as $post)
                     <div class="col-md-6 col-lg-4 item" style="max-width: 100% !important;">
-                        <a href="#" class="a-block d-flex align-items-center height-md" style="background-image: url('{{$post->featuredImage}}'); ">
+                        <a href="{{route('post',['slug'=>$post->slug])}}" class="a-block d-flex align-items-center height-md" style="background-image: url('{{$post->featuredImage}}'); ">
                             <div class="text">
                                 <h3>{{$post->title}}</h3>
                             </div>

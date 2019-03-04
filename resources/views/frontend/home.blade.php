@@ -69,12 +69,13 @@
                                     <div class="blog-content-body">
                                         <div class="post-meta">
                                             <span class="category">
-                                                {{$post->category->name}}
+                                                @if(isset($post->category->name))
+                                                    {{$post->category->name}}
+                                                @endif
                                             </span>
                                             <span class="mr-2">{{$post->created_at}} </span>
                                         </div>
                                         <h2>{{$post->title}}</h2>
-                                        <p>{{$post->excerpt}}</p>
                                     </div>
                                 </a>
                             </div>

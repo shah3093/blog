@@ -23,6 +23,20 @@ Route::namespace('Frontend')->group(function() {
     Route::get('contact', 'HomeController@contact')->name('contact');
     Route::get('pdf/{type}/{slug}', 'HomeController@generatepdf')->name('pdf');
     
+    Route::name('visitors.')->group(function() {
+        Route::get('visitors/logout', 'VisitorController@logout')->name('logout');
+        Route::get('visitors/loginform', 'VisitorController@showLoginForm')->name('loginform');
+        Route::get('visitors/registrationform', 'VisitorController@showRegistrationForm')->name('registrationform');
+        Route::post('visitors/registradb', 'VisitorController@registerVisitor')->name('registradb');
+        Route::post('visitors/login', 'VisitorController@login')->name('login');
+        Route::get('visitors/verifymail/{visitorid}/{code}', 'VisitorController@verifyVisitor')->name('verifyVisitor');
+        Route::get('visitors/profile', 'VisitorController@getVisitorProfile')->name('profile');
+        Route::get('visitors/editname', 'VisitorController@showEditNameForm')->name('editname');
+        Route::post('visitors/editnamedb', 'VisitorController@updatename')->name('editnamedb');
+        Route::get('visitors/editpassword', 'VisitorController@showEditPasswordForm')->name('editpassword');
+        Route::post('visitors/editpassworddb', 'VisitorController@updatepassword')->name('editpassworddb');
+    });
+    
     Route::get('error', function() {
         return view('frontend.error');
     })->name('frontend.error');

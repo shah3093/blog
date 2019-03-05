@@ -11,11 +11,25 @@
                     <a href="#"><span class="fa fa-snapchat"></span></a>
                 </div>
                 <div class="col search-top">
-
-                    <form action="#" class="search-top-form">
-                        <span class="icon fa fa-search"></span>
-                        <input type="text" id="s" placeholder="Type keyword to search...">
-                    </form>
+                    <div class="collapse navbar-collapse" id="navbarMenu2">
+                        <ul class="navbar-nav mx-auto">
+                            <li class="nav-item dropdown">
+                                <a style="color: white;" class="nav-link dropdown-toggle pull-right" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Visitors here <i class="fa fa-user"></i>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="dropdown04">
+                                    @guest('visitor')
+                                        <a class="dropdown-item" href="{{route('visitors.loginform')}}">Log in</a>
+                                        <a class="dropdown-item" href="{{route('visitors.registrationform')}}">Register</a>
+                                    @endguest
+                                    @auth('visitor')
+                                        <a class="dropdown-item" href="{{route('visitors.profile')}}">Profile</a>
+                                        <a class="dropdown-item" href="{{route('visitors.logout')}}">Log out</a>
+                                    @endauth
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>

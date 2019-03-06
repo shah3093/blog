@@ -13,7 +13,7 @@
 
 Route::namespace('Frontend')->group(function() {
     Route::get('/', 'HomeController@index');
-    Route::get('/home', 'HomeController@index');
+    Route::get('/home', 'HomeController@index')->name('home');
     
     Route::get('post/{slug}', 'HomeController@showpost')->name('post');
     Route::get('category/{slug}', 'HomeController@showcategory')->name('category');
@@ -23,18 +23,31 @@ Route::namespace('Frontend')->group(function() {
     Route::get('contact', 'HomeController@contact')->name('contact');
     Route::get('pdf/{type}/{slug}', 'HomeController@generatepdf')->name('pdf');
     
+    Route::get('comments/{postSlug}', 'HomeController@getCommentsform')->name('comments');
+    Route::post('getcomments/{postid}', 'HomeController@getComments')->name('getcomments');
+    Route::post('saveComments/{postid}', 'HomeController@saveComments')->name('saveComments');
+    Route::post('updateComment', 'HomeController@updateComment')->name('updateComment');
+    Route::post('deleteComment', 'HomeController@deleteComment')->name('deleteComment');
+    
     Route::name('visitors.')->group(function() {
-        Route::get('visitors/logout', 'VisitorController@logout')->name('logout');
-        Route::get('visitors/loginform', 'VisitorController@showLoginForm')->name('loginform');
-        Route::get('visitors/registrationform', 'VisitorController@showRegistrationForm')->name('registrationform');
-        Route::post('visitors/registradb', 'VisitorController@registerVisitor')->name('registradb');
-        Route::post('visitors/login', 'VisitorController@login')->name('login');
-        Route::get('visitors/verifymail/{visitorid}/{code}', 'VisitorController@verifyVisitor')->name('verifyVisitor');
-        Route::get('visitors/profile', 'VisitorController@getVisitorProfile')->name('profile');
-        Route::get('visitors/editname', 'VisitorController@showEditNameForm')->name('editname');
-        Route::post('visitors/editnamedb', 'VisitorController@updatename')->name('editnamedb');
-        Route::get('visitors/editpassword', 'VisitorController@showEditPasswordForm')->name('editpassword');
-        Route::post('visitors/editpassworddb', 'VisitorController@updatepassword')->name('editpassworddb');
+        Route::group(['middleware' => ['guest']], function() {
+            Route::get('visitors/loginform', 'VisitorController@showLoginForm')->name('loginform');
+            Route::get('visitors/registrationform', 'VisitorController@showRegistrationForm')->name('registrationform');
+            Route::post('visitors/registradb', 'VisitorController@registerVisitor')->name('registradb');
+            Route::post('visitors/login', 'VisitorController@login')->name('login');
+            Route::post('visitors/loginajax', 'VisitorController@loginajax')->name('loginajax');
+            Route::get('visitors/verifymail/{visitorid}/{code}', 'VisitorController@verifyVisitor')->name('verifyVisitor');
+        });
+        Route::group(['middleware' => ['auth:visitor']], function() {
+            Route::get('visitors/logout', 'VisitorController@logout')->name('logout');
+            Route::get('visitors/profile', 'VisitorController@getVisitorProfile')->name('profile');
+            Route::get('visitors/editname', 'VisitorController@showEditNameForm')->name('editname');
+            Route::post('visitors/editnamedb', 'VisitorController@updatename')->name('editnamedb');
+            Route::get('visitors/editpassword', 'VisitorController@showEditPasswordForm')->name('editpassword');
+            Route::get('visitors/commentslist', 'VisitorController@getcommentslist')->name('commentslist');
+            Route::post('visitors/editpassworddb', 'VisitorController@updatepassword')->name('editpassworddb');
+        });
+        
     });
     
     Route::get('error', function() {

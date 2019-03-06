@@ -49,4 +49,8 @@ class Post extends Model
     {
         return $this->morphToMany(Tag::class, 'taggable');
     }
+    
+    public function comments(){
+        return $this->hasMany('App\Models\Comment','post_id');
+    }
 }

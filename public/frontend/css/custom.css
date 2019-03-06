@@ -132,3 +132,10 @@ body{
     font-weight: 600;
     color: #0062cc;
 }
+
+.mb-5-custom{
+    margin-bottom: 5rem !important;
+}
+.mt-5-custom{
+    margin-top: 5rem !important;
+}

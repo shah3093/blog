@@ -4,12 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 
-class Visitor extends Authenticatable
+class Comment extends Model
 {
-    use SoftDeletes,Notifiable;
+    use SoftDeletes;
     /**
      * The attributes that should be mutated to dates.
      *
@@ -19,7 +17,11 @@ class Visitor extends Authenticatable
     
     protected $guarded = [];
     
-    public function comments(){
-        return $this->hasMany('App\Models\Comment','visitor_id');
+    public function posts(){
+        return $this->belongsTo('App\Models\Post','post_id');
+    }
+    
+    public function visitors(){
+        return $this->belongsTo('App\Models\Visitor','visitor_id');
     }
 }

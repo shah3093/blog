@@ -30,8 +30,7 @@
                                     <p></p>
                                     <a href="{{route('visitors.editname')}}">Edit Name</a><br/>
                                     <a href="{{route('visitors.editpassword')}}">Edit Password</a><br/>
-                                    <a href="#">Bookmarks</a><br/>
-                                    <a href="#">Comments</a><br/>
+                                    <a href="{{route('visitors.commentslist')}}">Comments</a><br/>
                                     <a href="#">Questions</a><br/>
                                 </div>
                             </div>

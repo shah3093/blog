@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\View\Composers\SeriesComposer;
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Page;
 use App\Models\Post;
 use App\Models\Series;
@@ -13,6 +14,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\View;
 use Mpdf\Mpdf;
 use PhpParser\Node\Stmt\Case_;
@@ -186,7 +188,77 @@ class HomeController extends Controller {
         } catch(\Exception $exception) {
             return redirect()->route('frontend.error');
         }
+    }
+    
+    public function getCommentsform($postSlug) {
+        $data['post'] = Post::with('category')->where("slug", $postSlug)->first();
         
+        return view('frontend.postcomments', $data);
+    }
+    
+    public function getComments($postid) {
+        $data['comments'] = Comment::with('visitors')->where(['post_id' => $postid])->orderBy('id', 'desc')->get();
         
+        return view('frontend.commentsection', $data);
+    }
+    
+    public function saveComments(Request $request, $postid) {
+        $validator = Validator::make($request->all(), [
+            'comment' => 'required'
+        ]);
+        
+        if($validator->fails()) {
+            return response()->json(["Fill form correctly"]);
+        }
+        try {
+            $comment = new Comment();
+            $comment->comment = $request->comment;
+            $comment->post_id = $postid;
+            $comment->visitor_id = \Auth::guard('visitor')->id();
+            $comment->save();
+            
+            return response()->json(["DONE"]);
+            
+        } catch(\Exception $exception) {
+            return response()->json([$exception->getMessage()]);
+        }
+    }
+    
+    public function updateComment(Request $request) {
+        $validator = Validator::make($request->all(), [
+            'comment' => 'required'
+        ]);
+        
+        if($validator->fails()) {
+            return response()->json(["ERROR"]);
+        }
+        try {
+            $comment = Comment::find($request->commentid);
+            $comment->comment = $request->comment;
+            $comment->save();
+            
+            return response()->json([$comment->comment]);
+            
+        } catch(\Exception $exception) {
+            return response()->json(["ERROR"]);
+        }
+    }
+    
+    public function deleteComment(Request $request) {
+        $validator = Validator::make($request->all(), [
+            'commentid' => 'required'
+        ]);
+        
+        if($validator->fails()) {
+            return response()->json(["ERROR"]);
+        }
+        try {
+            Comment::destroy($request->commentid);
+            
+            return response()->json(["DONE"]);
+            
+        } catch(\Exception $exception) {
+            return response()->json(["ERROR"]);
+        }
     }
 }

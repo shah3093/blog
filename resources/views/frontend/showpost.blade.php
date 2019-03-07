@@ -93,6 +93,9 @@
                                 </a>
                                 @include('frontend.partials.login')
                             @endguest
+                            <a href="#" id="refreshcomment" class="btn btn-info pull-right mr-2">
+                                <i class="fa fa-refresh"></i>
+                            </a>
                         </form>
 
                         <div id="commentsection"></div>
@@ -127,6 +130,12 @@
 
         getCommentSection();
 
+
+        $("body").on('click', '#refreshcomment', function (e) {
+            e.preventDefault();
+            getCommentSection();
+        });
+
         $("body").on('click', '#submitdata', function (e) {
             e.preventDefault();
             var url = $(this).data('url');
@@ -150,6 +159,7 @@
                 if (resp != "DONE") {
                     $("#errordiv").html(resp);
                 } else {
+                    $("#comment").val("");
                     getCommentSection();
                 }
             });

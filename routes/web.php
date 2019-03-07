@@ -50,6 +50,15 @@ Route::namespace('Frontend')->group(function() {
         
     });
     
+    Route::name('question.')->group(function() {
+        Route::get('question', 'QuestionController@index')->name('index');
+        
+        Route::group(['middleware' => ['auth:visitor']], function() {
+            Route::get('question/create', 'QuestionController@createQuestion')->name('create');
+            Route::post('question/store', 'QuestionController@storeQuestion')->name('store');
+        });
+    });
+    
     Route::get('error', function() {
         return view('frontend.error');
     })->name('frontend.error');
@@ -70,6 +79,7 @@ Route::name('backend.')->namespace('Backend')->group(function() {
     Route::resource('menus', 'MenuController');
     Route::resource('series', 'SeriesController');
     Route::resource('extrafile', 'ExtraFileController');
+    Route::resource('questiontype', 'QuestionTypeController');
     
     Route::post('storefile', 'PostController@storefile')->name('storefile');
     Route::post('deletefile', 'PostController@deletefile')->name('deletefile');

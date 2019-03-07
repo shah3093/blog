@@ -11,6 +11,13 @@
         </form>
     </div>
 
+    <div class="sidebar-box">
+        <div class="bio">
+            <div class="bio-body text-center">
+                <a href="{{route('question.index')}}" class="btn btn-success btn-lg">Question and Answer Section</a>
+            </div>
+        </div>
+    </div>
 
     <div class="sidebar-box">
         <h3 class="heading">Series</h3>

@@ -58,6 +58,12 @@
                         <span class="hide-menu">Question Type</span>
                     </a>
                 </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('backend.questions.index')}}" aria-expanded="false">
+                        <i class="mdi mdi-web"></i>
+                        <span class="hide-menu">Question</span>
+                    </a>
+                </li>
 
             </ul>
         </nav>

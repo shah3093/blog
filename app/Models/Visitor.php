@@ -22,4 +22,8 @@ class Visitor extends Authenticatable
     public function comments(){
         return $this->hasMany('App\Models\Comment','visitor_id');
     }
+    
+    public function questions(){
+        return $this->hasMany(Question::class,'visitor_id');
+    }
 }

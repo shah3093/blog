@@ -80,6 +80,7 @@ Route::name('backend.')->namespace('Backend')->group(function() {
     Route::resource('series', 'SeriesController');
     Route::resource('extrafile', 'ExtraFileController');
     Route::resource('questiontype', 'QuestionTypeController');
+    Route::resource('questions', 'QuestionsController');
     
     Route::post('storefile', 'PostController@storefile')->name('storefile');
     Route::post('deletefile', 'PostController@deletefile')->name('deletefile');

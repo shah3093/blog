@@ -30,7 +30,7 @@ class SeriesEventListeners {
     public function handle(SeriesEvent $event) {
         $ca = [];
         $series = $ca['series'] = Series::with('categories')->where('slug', $event->series->slug)->first();
-        
+        $categories = [];
         if(isset($series->slug)) {
             foreach($series->categories as $key => $category) {
                 $categories[$key]['catid'] = $category->id;

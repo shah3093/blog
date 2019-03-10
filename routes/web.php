@@ -46,12 +46,16 @@ Route::namespace('Frontend')->group(function() {
             Route::get('visitors/editpassword', 'VisitorController@showEditPasswordForm')->name('editpassword');
             Route::get('visitors/commentslist', 'VisitorController@getcommentslist')->name('commentslist');
             Route::post('visitors/editpassworddb', 'VisitorController@updatepassword')->name('editpassworddb');
+            Route::get('visitors/questionlist', 'VisitorController@getQuestions')->name('questionlist');
         });
         
     });
     
     Route::name('question.')->group(function() {
         Route::get('question', 'QuestionController@index')->name('index');
+        Route::get('questiontype/{type}', 'QuestionController@getQuestionTypes')->name('questiontype');
+        Route::get('questiondetails/{id}', 'QuestionController@getQuestionDetails')->name('questiondetails');
+        
         
         Route::group(['middleware' => ['auth:visitor']], function() {
             Route::get('question/create', 'QuestionController@createQuestion')->name('create');
@@ -69,27 +73,32 @@ Route::name('backend.')->namespace('Backend')->group(function() {
     
     Route::get('login', 'UserController@index')->name('login');
     Route::post('login', 'UserController@login')->name('login');
-    Route::get('logout', 'UserController@logout')->name('logout');
     
-    Route::get('admin', 'HomeController@index')->name('home');
-    Route::resource('categories', 'CategoryController');
-    Route::resource('tags', 'TagController');
-    Route::resource('posts', 'PostController');
-    Route::resource('pages', 'PageController');
-    Route::resource('menus', 'MenuController');
-    Route::resource('series', 'SeriesController');
-    Route::resource('extrafile', 'ExtraFileController');
-    Route::resource('questiontype', 'QuestionTypeController');
-    Route::resource('questions', 'QuestionsController');
+    Route::group(['middleware' => ['auth:web']], function() {
     
-    Route::post('storefile', 'PostController@storefile')->name('storefile');
-    Route::post('deletefile', 'PostController@deletefile')->name('deletefile');
-    Route::post('getMenyTypes', 'MenuController@getMenyTypes')->name('getMenyTypes');
-    Route::get('serieslist/{id}', 'SeriesController@getSeriesList')->name('serieslist');
-    
-    
-    Route::post('postedit', 'SeriesController@editpostorder')->name('postedit');
-    Route::post('categoryedit', 'SeriesController@editcategororder')->name('categoryedit');
-    Route::post('categoryadd', 'SeriesController@addCategorySeries')->name('categoryadd');
-    Route::delete('deletecategoryseries/{id}', 'SeriesController@deletecategoryseries')->name('deletecategoryseries');
+        Route::get('logout', 'UserController@logout')->name('logout');
+        
+        Route::get('admin', 'HomeController@index')->name('home');
+        Route::resource('categories', 'CategoryController');
+        Route::resource('tags', 'TagController');
+        Route::resource('posts', 'PostController');
+        Route::resource('pages', 'PageController');
+        Route::resource('menus', 'MenuController');
+        Route::resource('series', 'SeriesController');
+        Route::resource('extrafile', 'ExtraFileController');
+        Route::resource('questiontype', 'QuestionTypeController');
+        Route::resource('questions', 'QuestionsController');
+        
+        Route::post('storefile', 'PostController@storefile')->name('storefile');
+        Route::post('deletefile', 'PostController@deletefile')->name('deletefile');
+        Route::post('getMenyTypes', 'MenuController@getMenyTypes')->name('getMenyTypes');
+        Route::get('serieslist/{id}', 'SeriesController@getSeriesList')->name('serieslist');
+        
+        
+        Route::post('postedit', 'SeriesController@editpostorder')->name('postedit');
+        Route::post('categoryedit', 'SeriesController@editcategororder')->name('categoryedit');
+        Route::post('categoryadd', 'SeriesController@addCategorySeries')->name('categoryadd');
+        Route::delete('deletecategoryseries/{id}', 'SeriesController@deletecategoryseries')->name('deletecategoryseries');
+        
+    });
 });

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Comment;
+use App\Models\Question;
 use App\Models\Visitor;
 use App\Notifications\SendVerifyMail;
 use Carbon\Carbon;
@@ -191,6 +192,12 @@ class VisitorController extends Controller {
         $data['comments'] = Comment::with('posts')->where(['visitor_id' => Auth::guard('visitor')->id()])->orderBy('id', 'desc')->paginate(15);
         
         return view('frontend.visitors.commentslist', $data);
+    }
+    
+    public function getQuestions(){
+        $data['questions'] = Question::with('answer')->where(['visitor_id' => Auth::guard('visitor')->id()])->orderBy('id', 'desc')->paginate(15);
+    
+        return view('frontend.visitors.questionslist', $data);
     }
     
 }

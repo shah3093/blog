@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\QuestionType;
 use App\Models\Series;
 use App\Models\Tag;
 use Illuminate\Support\Facades\Cache;
@@ -36,6 +37,10 @@ class AppServiceProvider extends ServiceProvider {
             $view->with($data);
         });
         view()->composer('frontend.partials.header', 'App\Http\View\Composers\MenuComposer');
+        view()->composer('frontend.question.template', function($view) {
+            $data['questiontypes'] = QuestionType::get();
+            $view->with($data);
+        });
     }
     
     /**

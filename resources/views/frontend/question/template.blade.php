@@ -33,10 +33,9 @@
                     <div class="sidebar-box ">
                         <h3 class="heading text-center">Question Types</h3>
                         <ul class="tags">
-                            <li><a href="#">Type 1</a></li>
-                            <li><a href="#">Type 1</a></li>
-                            <li><a href="#">Type 1</a></li>
-                            <li><a href="#">Type 1</a></li>
+                            @foreach($questiontypes as $qtype)
+                                <li><a href="{{route('question.questiontype',['type'=>$qtype->slug])}}">{{$qtype->type}}</a></li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>

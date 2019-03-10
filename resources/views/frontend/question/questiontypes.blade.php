@@ -1,12 +1,13 @@
 @extends('frontend.question.template')
 
 @section('q-content')
+    <h2>{{$type->type}}</h2>
     @foreach($questions as $question)
         <div class="bio mb-3">
             <div class="bio-body">
                 <a href="{{route('question.questiondetails',['id'=>$question->id])}}">
                     <h3>{{$question->title}}</h3>
-                    <p style="color: black">{{$question->details}}</p>
+                    <p style="color: black;">{{$question->details}}</p>
                 </a>
                 <hr/>
                 <div class="row">

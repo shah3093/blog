@@ -20,5 +20,5 @@
         </tbody>
 
     </table>
-    {{$comments->links()}}
+    {{$comments->links('frontend.partials.template-paginate')}}
 @endsection

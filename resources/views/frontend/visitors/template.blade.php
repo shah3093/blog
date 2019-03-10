@@ -31,7 +31,7 @@
                                     <a href="{{route('visitors.editname')}}">Edit Name</a><br/>
                                     <a href="{{route('visitors.editpassword')}}">Edit Password</a><br/>
                                     <a href="{{route('visitors.commentslist')}}">Comments</a><br/>
-                                    <a href="#">Questions</a><br/>
+                                    <a href="{{route('visitors.questionlist')}}">Questions</a><br/>
                                 </div>
                             </div>
                             <div class="col-md-9">

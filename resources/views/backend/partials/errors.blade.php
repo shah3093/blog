@@ -5,3 +5,9 @@
         </div>
     @endforeach
 @endif
+
+@if(session()->has('successMsg'))
+    <div class="alert alert-success" role="alert">
+        {{session()->get('successMsg')}}
+    </div>
+@endif

@@ -130,9 +130,7 @@ class CategoryController extends Controller {
      */
     public function update(Request $request, $id) {
         $validatedData = $request->validate([
-            'name'  => [
-                'required',
-                Rule::unique('users')->ignore($id, 'name')            ],
+            'name'  => 'required|unique:categories,name,'.$id,
             'image' => 'image',
         ]);
         

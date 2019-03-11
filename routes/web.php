@@ -77,6 +77,10 @@ Route::name('backend.')->namespace('Backend')->group(function() {
     Route::group(['middleware' => ['auth:web']], function() {
     
         Route::get('logout', 'UserController@logout')->name('logout');
+        Route::get('profile', 'UserController@getProfiledata')->name('profile');
+        Route::post('profile/update', 'UserController@updateProfile')->name('updateProfile');
+        Route::post('password/update', 'UserController@updatepassword')->name('updatepassword');
+        Route::get('password/updateform', 'UserController@updatepasswordform')->name('updatepasswordform');
         
         Route::get('admin', 'HomeController@index')->name('home');
         Route::resource('categories', 'CategoryController');

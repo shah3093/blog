@@ -62,7 +62,8 @@
                                 <form class="deletedatafrm btn" action="{{route('backend.menus.destroy',['menu'=>$menu->id])}}" method="POST">
                                     @method('DELETE')
                                     @csrf
-                                    <button type="submit" class="btn btn-danger  deletedata"><i class="mdi mdi-delete"></i></button>
+                                    <button type="submit" class="btn btn-danger  deletedata">
+                                        <i class="mdi mdi-delete"></i></button>
                                 </form>
                             </td>
                         </tr>
@@ -76,5 +77,12 @@
 @endsection
 
 @section('script')
-
+    <script>
+        $('#zero_config').DataTable({
+            "order": [[3, "desc"]],
+            "columnDefs": [
+                {"targets": [3], "orderable": false}
+            ]
+        });
+    </script>
 @endsection

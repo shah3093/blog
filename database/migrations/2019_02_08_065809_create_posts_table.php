@@ -21,7 +21,7 @@ class CreatePostsTable extends Migration
             $table->longText('content');
             $table->text('excerpt')->nullable();
             $table->boolean('status')->default('1');
-            $table->integer('sort_order')->default('0');
+            $table->integer('sort_order')->default('0')->nullable();
             $table->integer('created')->unsigned()->default(0);
             $table->integer('published')->unsigned()->default(0);
             $table->integer('numberofviews')->default(0);

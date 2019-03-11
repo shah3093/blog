@@ -151,6 +151,8 @@ class SeriesController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function destroy($id) {
+        $series =Series::with('categories')->find($id);
+        $series->categories()->detach();
         Series::destroy($id);
         
         return redirect()->route('backend.series.index');

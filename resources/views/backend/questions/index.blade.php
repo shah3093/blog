@@ -31,8 +31,8 @@
                     <div class="col-md-6">
                         <div class="ml-auto text-right">
                             {{--<a href="{{route('backend.questions.create')}}" class="btn btn-sm btn-info">--}}
-                                {{--<i class="mdi mdi-plus"></i>--}}
-                                {{--Add Question--}}
+                            {{--<i class="mdi mdi-plus"></i>--}}
+                            {{--Add Question--}}
                             {{--</a>--}}
                         </div>
                     </div>
@@ -83,5 +83,39 @@
 @endsection
 
 @section('script')
+    <script>
+        $('#zero_config').DataTable({
+            "order": [[4, "desc"]],
+            "columnDefs": [
+                {"targets": [1, 4], "orderable": false}
+            ],
+            "columns": [
+                {"width": "15%"},
+                {"width": "15%"},
+                {"width": "15%"},
+                {"width": "20%"},
+                {"width": "10%"}
+            ],
+            initComplete: function () {
+                this.api().columns(1).every(function () {
+                    var column = this;
+                    var select = $('<select class="form-control"><option value=""></option></select>')
+                        .appendTo($(column.header()).html('Parent Name'))
+                        .on('change', function () {
+                            var val = $.fn.dataTable.util.escapeRegex(
+                                $(this).val()
+                            );
 
+                            column
+                                .search(val ? '^' + val + '$' : '', true, false)
+                                .draw();
+                        });
+
+                    column.data().unique().sort().each(function (d, j) {
+                        select.append('<option value="' + d + '">' + d + '</option>')
+                    });
+                });
+            }
+        });
+    </script>
 @endsection

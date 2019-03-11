@@ -80,5 +80,42 @@
 @endsection
 
 @section('script')
+    <script>
+        $(document).ready(function () {
+            $('#zero_config').DataTable({
+                "order": [[ 5, "desc" ]],
+                "columnDefs": [
+                    { "targets": [1,5], "orderable": false }
+                ],
+                "columns": [
+                    { "width": "40%" },
+                    { "width": "20%" },
+                    { "width": "5%" },
+                    { "width": "5%" },
+                    { "width": "7%" },
+                    { "width": "15%" }
+                ],
+                initComplete: function () {
+                    this.api().columns(1).every(function () {
+                        var column = this;
+                        var select = $('<select class="form-control"><option value=""></option></select>')
+                            .appendTo($(column.header()).html('Category'))
+                            .on('change', function () {
+                                var val = $.fn.dataTable.util.escapeRegex(
+                                    $(this).val()
+                                );
 
+                                column
+                                    .search(val ? '^' + val + '$' : '', true, false)
+                                    .draw();
+                            });
+
+                        column.data().unique().sort().each(function (d, j) {
+                            select.append('<option value="' + d + '">' + d + '</option>')
+                        });
+                    });
+                }
+            });
+        });
+    </script>
 @endsection

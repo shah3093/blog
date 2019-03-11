@@ -62,7 +62,8 @@
                                 <form class="deletedatafrm btn" action="{{route('backend.pages.destroy',['page'=>$page->id])}}" method="POST">
                                     @method('DELETE')
                                     @csrf
-                                    <button type="submit" class="btn btn-danger  deletedata"><i class="mdi mdi-delete"></i></button>
+                                    <button type="submit" class="btn btn-danger  deletedata">
+                                        <i class="mdi mdi-delete"></i></button>
                                 </form>
                             </td>
                         </tr>
@@ -73,4 +74,23 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <script>
+        $(document).ready(function () {
+            $('#zero_config').DataTable({
+                "order": [[3, "desc"]],
+                "columnDefs": [
+                    {"targets": [3], "orderable": false}
+                ],
+                "columns": [
+                    {"width": "50%"},
+                    {"width": "7%"},
+                    {"width": "12%"},
+                    {"width": "15%"}
+                ],
+            });
+        });
+    </script>
 @endsection

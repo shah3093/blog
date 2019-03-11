@@ -48,10 +48,25 @@
                             </div>
                         </div>
 
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="name">Parent</label>
+                                    <select name="parent_id" class="form-control select2">
+                                        <option value="">Select category</option>
+                                        @foreach($categories as $cat)
+                                            <option {{$category->parent_id == $cat->id ? "selected":""}} value="{{$cat->id}}">{{$cat->name}}</option>
+                                        @endforeach
+                                    </select>
 
-                        <div class="form-group">
-                            <label for="name">Name <span class="text-danger">*</span></label>
-                            <input type="text" id="name" class="form-control required" value="{{$category->name}}" name="name" placeholder="Name"/>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="name">Name <span class="text-danger">*</span></label>
+                                    <input type="text" id="name" class="form-control required" value="{{$category->name}}" name="name" />
+                                </div>
+                            </div>
                         </div>
 
                         <div class="row">

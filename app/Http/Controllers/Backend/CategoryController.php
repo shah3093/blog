@@ -8,6 +8,7 @@ use App\Models\Series;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\Rule;
 
 class CategoryController extends Controller {
     
@@ -105,6 +106,7 @@ class CategoryController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function edit($id) {
+        $data['categories'] = Category::get();
         $data['category'] = Category::with('series')->find($id);
         $isSeries = $data['isSeries'] = isset($data['category']->series[0]->name) ? 1 : 0;
         $data['seriesid'] = "";
@@ -128,7 +130,9 @@ class CategoryController extends Controller {
      */
     public function update(Request $request, $id) {
         $validatedData = $request->validate([
-            'name'  => 'required|unique:categories,name,'.$id,
+            'name'  => [
+                'required',
+                Rule::unique('users')->ignore($id, 'name')            ],
             'image' => 'image',
         ]);
         

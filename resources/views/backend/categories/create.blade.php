@@ -48,7 +48,7 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col">
                                 <div class="form-group">
                                     <label for="name">Parent</label>
                                     <select name="parent_id" class="form-control select2">
@@ -60,7 +60,7 @@
 
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col">
                                 <div class="form-group">
                                     <label for="name">Name <span class="text-danger">*</span></label>
                                     <input type="text" id="name" class="form-control required" value="{{old('name')}}" name="name" placeholder="Name"/>

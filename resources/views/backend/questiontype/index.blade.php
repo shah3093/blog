@@ -72,5 +72,7 @@
 @endsection
 
 @section('script')
-
+<script>
+    $('#zero_config').DataTable({});
+</script>
 @endsection

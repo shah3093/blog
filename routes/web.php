@@ -53,7 +53,7 @@ Route::namespace('Frontend')->group(function() {
     
     Route::name('question.')->group(function() {
         Route::get('question', 'QuestionController@index')->name('index');
-        Route::get('questiontype/{type}', 'QuestionController@getQuestionTypes')->name('questiontype');
+        Route::get('questionstype/{type}', 'QuestionController@getQuestionTypes')->name('questiontype');
         Route::get('questiondetails/{id}', 'QuestionController@getQuestionDetails')->name('questiondetails');
         
         

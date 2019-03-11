@@ -89,5 +89,19 @@
             $temp.remove();
             swal("Link Copied", "", "success");
         });
+
+        $('#zero_config').DataTable({
+            "order": [[4, "desc"]],
+            "columnDefs": [
+                {"targets": [4], "orderable": false}
+            ],
+            "columns": [
+                {"width": "5%"},
+                {"width": "30%"},
+                {"width": "10%"},
+                {"width": "15%"},
+                {"width": "10%"},
+            ],
+        });
     </script>
 @endsection

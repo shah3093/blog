@@ -74,5 +74,9 @@
 @endsection
 
 @section('script')
-
+<script>
+    $('#zero_config').DataTable({
+        "order": [[ 2, "desc" ]],
+    });
+</script>
 @endsection

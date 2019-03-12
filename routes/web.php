@@ -15,7 +15,7 @@ Route::namespace('Frontend')->group(function() {
     Route::get('/', 'HomeController@index');
     Route::get('/home', 'HomeController@index')->name('home');
     
-    Route::get('post/{slug}', 'HomeController@showpost')->name('post');
+    Route::get('post/{slug}/{commentid?}', 'HomeController@showpost')->name('post');
     Route::get('category/{slug}', 'HomeController@showcategory')->name('category');
     Route::get('page/{slug}', 'HomeController@showpage')->name('page');
     Route::get('tag/{name}', 'HomeController@showtag')->name('tag');
@@ -25,9 +25,9 @@ Route::namespace('Frontend')->group(function() {
     
     Route::get('comments/{postSlug}', 'HomeController@getCommentsform')->name('comments');
     Route::post('getcomments/{postid}', 'HomeController@getComments')->name('getcomments');
-    Route::post('saveComments/{postid}', 'HomeController@saveComments')->name('saveComments');
-    Route::post('updateComment', 'HomeController@updateComment')->name('updateComment');
-    Route::post('deleteComment', 'HomeController@deleteComment')->name('deleteComment');
+    Route::post('saveComments/{postid}', 'HomeController@saveComments')->name('saveComments')->middleware(['auth:visitor,web']);
+    Route::post('updateComment', 'HomeController@updateComment')->name('updateComment')->middleware(['auth:visitor,web']);
+    Route::post('deleteComment', 'HomeController@deleteComment')->name('deleteComment')->middleware(['auth:visitor,web']);
     
     Route::name('visitors.')->group(function() {
         Route::group(['middleware' => ['guest']], function() {

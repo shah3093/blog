@@ -71,14 +71,26 @@
                 <!-- Comment -->
                 <!-- ============================================================== -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="mdi mdi-bell font-24"></i>
+                    <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" id="2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="font-24 mdi mdi-comment-alert"></i>
+                        <span class="badge badge-light">{{$nNCommentscnt==0?"":$nNCommentscnt}}</span>
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                    <div class="dropdown-menu dropdown-menu-right mailbox animated bounceInDown" aria-labelledby="2">
+                        <ul class="list-style-none">
+                            <li>
+                                <div class="">
+                                    @foreach($nNComments as $nNComment)
+                                        <a target="_blank" href="{{route('post',['slug'=>$nNComment->posts->slug,'commentid'=>$nNComment->id])}}" class="link border-top">
+                                            <div class="d-flex no-block align-items-center p-10">
+                                                <div class="m-l-10">
+                                                    <p class="m-b-0">Someone commented on post - {{$nNComment->posts->title}}</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    @endforeach
+                                </div>
+                            </li>
+                        </ul>
                     </div>
                 </li>
                 <!-- ============================================================== -->
@@ -89,49 +101,28 @@
                 <!-- ============================================================== -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" id="2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="font-24 mdi mdi-comment-processing"></i>
+                        <i class="font-24 mdi mdi-comment-question-outline"></i>
+                        <span class="badge badge-light">{{$nPQuestionscnt==0?"":$nPQuestionscnt}}</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right mailbox animated bounceInDown" aria-labelledby="2">
                         <ul class="list-style-none">
                             <li>
                                 <div class="">
-                                    <!-- Message -->
-                                    <a href="javascript:void(0)" class="link border-top">
-                                        <div class="d-flex no-block align-items-center p-10">
-                                            <span class="btn btn-success btn-circle"><i class="ti-calendar"></i></span>
-                                            <div class="m-l-10">
-                                                <h5 class="m-b-0">Event today</h5>
-                                                <span class="mail-desc">Just a reminder that event</span>
+                                    @foreach($nPQuestions as $nPQuestion)
+                                        <a href="{{route('backend.questions.edit',['questions'=>$nPQuestion->id])}}" class="link border-top">
+                                            <div class="d-flex no-block align-items-center p-10">
+                                                <div class="m-l-10">
+                                                    <h5 class="m-b-0">{{$nPQuestion->title}}</h5>
+                                                    <span class="mail-desc">{{substr($nPQuestion->details,0,20)."...."}}</span>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </a>
-                                    <!-- Message -->
-                                    <a href="javascript:void(0)" class="link border-top">
+                                        </a>
+                                @endforeach
+                                <!-- Message -->
+                                    <a href="{{route('backend.questions.index')}}" class="link border-top">
                                         <div class="d-flex no-block align-items-center p-10">
-                                            <span class="btn btn-info btn-circle"><i class="ti-settings"></i></span>
                                             <div class="m-l-10">
-                                                <h5 class="m-b-0">Settings</h5>
-                                                <span class="mail-desc">You can customize this template</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <!-- Message -->
-                                    <a href="javascript:void(0)" class="link border-top">
-                                        <div class="d-flex no-block align-items-center p-10">
-                                            <span class="btn btn-primary btn-circle"><i class="ti-user"></i></span>
-                                            <div class="m-l-10">
-                                                <h5 class="m-b-0">Pavan kumar</h5>
-                                                <span class="mail-desc">Just see the my admin!</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <!-- Message -->
-                                    <a href="javascript:void(0)" class="link border-top">
-                                        <div class="d-flex no-block align-items-center p-10">
-                                            <span class="btn btn-danger btn-circle"><i class="fa fa-link"></i></span>
-                                            <div class="m-l-10">
-                                                <h5 class="m-b-0">Luanch Admin</h5>
-                                                <span class="mail-desc">Just see the my new admin!</span>
+                                                <h5 class="m-b-0">See all</h5>
                                             </div>
                                         </div>
                                     </a>
@@ -150,16 +141,19 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="{{URL::asset('backend/assets/images/users/1.jpg')}}" alt="user" class="rounded-circle" width="31"></a>
                     <div class="dropdown-menu dropdown-menu-right user-dd animated">
-                        <a class="dropdown-item" href="{{route('backend.profile')}}"><i class="ti-user m-r-5 m-l-5"></i> My
+                        <a class="dropdown-item" href="{{route('backend.profile')}}"><i class="ti-user m-r-5 m-l-5"></i>
+                            My
                             Profile</a>
-                        <a class="dropdown-item" href="{{route('backend.updatepasswordform')}}"><i class="ti-wallet m-r-5 m-l-5"></i> Update
+                        <a class="dropdown-item" href="{{route('backend.updatepasswordform')}}"><i class="ti-wallet m-r-5 m-l-5"></i>
+                            Update
                             password</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{route('backend.logout')}}"><i class="fa fa-power-off m-r-5 m-l-5"></i>
                             Logout</a>
                         <div class="dropdown-divider"></div>
                         <div class="p-l-30 p-10">
-                            <a href="{{route('backend.profile')}}" class="btn btn-sm btn-success btn-rounded">View Profile</a>
+                            <a href="{{route('backend.profile')}}" class="btn btn-sm btn-success btn-rounded">View
+                                Profile</a>
                         </div>
                     </div>
                 </li>

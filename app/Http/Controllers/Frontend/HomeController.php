@@ -13,6 +13,7 @@ use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\View;
@@ -40,10 +41,17 @@ class HomeController extends Controller {
         return view('frontend.home', $data);
     }
     
-    public function showpost($slug) {
+    public function showpost($slug, $commentid = 0) {
         $data = [];
         try {
             $data['post'] = Post::with('category')->where("slug", $slug)->first();
+            if($commentid != 0) {
+                if(Auth::check()) {
+                    $comment = Comment::find($commentid);
+                    $comment->visited = 1;
+                    $comment->save();
+                }
+            }
             $data['releteadposts'] = Post::with('category')->where('categoryId', $data['post']->categoryId)->limit(3)->inRandomOrder()->get();
             
             return view('frontend.showpost', $data);

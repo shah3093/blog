@@ -93,9 +93,9 @@
                                 </a>
                                 @include('frontend.partials.login')
                             @endguest
-                            <a href="#" id="refreshcomment" class="btn btn-info pull-right mr-2">
-                                <i class="fa fa-refresh"></i>
-                            </a>
+                            {{--<a href="#" id="refreshcomment" class="btn btn-info pull-right mr-2">--}}
+                                {{--<i class="fa fa-refresh"></i>--}}
+                            {{--</a>--}}
                         </form>
 
                         <div id="commentsection"></div>

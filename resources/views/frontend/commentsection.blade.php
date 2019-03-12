@@ -16,6 +16,12 @@
 
                     </div>
                 @endif
+                @if(Auth::check())
+                    <div class="col-md-5" id="actiondiv{{$key}}">
+                    <button data-biocomment="biocomment{{$comment->id}}" data-commentid="{{$comment->id}}" class="btn pull-right deletecomment" style="color: red;">
+                        <i class="fa fa-trash"></i></button>
+                    </div>
+                @endif
             </div>
             <p id="showcommentid{{$key}}">{{$comment->comment}} </p>
             <div style="display: none;" id="hidecommentid{{$key}}">
@@ -84,12 +90,12 @@
         var biocomment = $(this).data("biocomment");
         var csrf = "{{csrf_token()}}";
         var url = "{{route('deleteComment')}}";
-        if(confirm("Want to delete ? ")){
-            $.post(url, {'_token': csrf,'commentid': commentid}, function (resp) {
+        if (confirm("Want to delete ? ")) {
+            $.post(url, {'_token': csrf, 'commentid': commentid}, function (resp) {
                 if (resp == "ERROR") {
 
                 } else {
-                    $("#"+biocomment).remove();
+                    $("#" + biocomment).remove();
                 }
             });
         }

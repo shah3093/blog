@@ -18,6 +18,7 @@ class CreateCommentsTable extends Migration
             $table->integer('post_id')->unsigned();
             $table->integer('visitor_id')->unsigned();
             $table->text('comment');
+            $table->boolean('visited')->default(false);
             $table->softDeletes();
             $table->timestamps();
             

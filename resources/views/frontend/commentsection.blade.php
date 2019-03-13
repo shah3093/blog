@@ -1,25 +1,27 @@
 @foreach($comments as $key=>$comment)
+    <?php
+    $visitorname = "Admin";
+    $visitorid = NULL;
+    if(isset($comment->visitors->name)) {
+        $visitorname = $comment->visitors->name;
+        $visitorid = $comment->visitors->id;
+    }
+    ?>
     <div class="bio mb-2" id="biocomment{{$comment->id}}">
         <div class="bio-body">
 
             <div class="row">
                 <div class="col-md-7">
-                    <h4>{{$comment->visitors->name}}</h4>
+                    <h4>{{$visitorname}}</h4>
 
                 </div>
-                @if(Auth::guard('visitor')->id() == $comment->visitors->id)
+                @if((Auth::guard('visitor')->id() == $visitorid) || Auth::check())
                     <div class="col-md-5" id="actiondiv{{$key}}">
                         <button data-biocomment="biocomment{{$comment->id}}" data-commentid="{{$comment->id}}" class="btn pull-right deletecomment" style="color: red;">
                             <i class="fa fa-trash"></i></button>
                         <button data-actiondiv="actiondiv{{$key}}" data-showcommentid="showcommentid{{$key}}" data-hidecommentid="hidecommentid{{$key}}" data-commentid="{{$comment->id}}" class="btn pull-right editcomment">
                             <i class="fa fa-edit"></i></button>
 
-                    </div>
-                @endif
-                @if(Auth::check())
-                    <div class="col-md-5" id="actiondiv{{$key}}">
-                    <button data-biocomment="biocomment{{$comment->id}}" data-commentid="{{$comment->id}}" class="btn pull-right deletecomment" style="color: red;">
-                        <i class="fa fa-trash"></i></button>
                     </div>
                 @endif
             </div>

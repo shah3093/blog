@@ -82,19 +82,18 @@
                                 <label for="comment">Comment:</label>
                                 <textarea name="comment" placeholder="What are you doing right now?" class="form-control" rows="5" id="comment"></textarea>
                             </div>
-                            @auth('visitor')
+                            @if(Auth::guard('visitor')->check() || Auth::guard('web')->check())
                                 <button data-url="{{route('saveComments',['postid'=>$post->id])}}" id="savecomment" type="submit" class="btn btn-primary pull-right">
                                     Submit
                                 </button>
-                            @endauth
-                            @guest('visitor')
+                            @else
                                 <a href="#" data-toggle="modal" data-target="#loginModal" type="submit" class="btn btn-primary pull-right">
                                     Submit
                                 </a>
                                 @include('frontend.partials.login')
-                            @endguest
+                            @endif
                             {{--<a href="#" id="refreshcomment" class="btn btn-info pull-right mr-2">--}}
-                                {{--<i class="fa fa-refresh"></i>--}}
+                            {{--<i class="fa fa-refresh"></i>--}}
                             {{--</a>--}}
                         </form>
 

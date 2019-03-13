@@ -220,10 +220,14 @@ class HomeController extends Controller {
             return response()->json(["Fill form correctly"]);
         }
         try {
+            $visitorid = Auth::guard('visitor')->check() == false ? null : true;
             $comment = new Comment();
             $comment->comment = $request->comment;
             $comment->post_id = $postid;
-            $comment->visitor_id = \Auth::guard('visitor')->id();
+            $comment->visitor_id = $visitorid != null ? Auth::guard('visitor')->id() : null;
+            if($visitorid == null) {
+                $comment->visited = 1;
+            }
             $comment->save();
             
             return response()->json(["DONE"]);

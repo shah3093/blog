@@ -23,6 +23,8 @@ class CreateQuestionsTable extends Migration
             $table->timestamps();
             $table->foreign('visitor_id')->references('id')->on('visitors')->onDelete('cascade');
         });
+    
+        DB::statement('ALTER TABLE questions ADD FULLTEXT full(title, details)');
     }
 
     /**

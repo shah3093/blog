@@ -57,8 +57,10 @@ Route::namespace('Frontend')->group(function() {
         Route::get('question', 'QuestionController@index')->name('index');
         Route::get('questionstype/{type}', 'QuestionController@getQuestionTypes')->name('questiontype');
         Route::get('questiondetails/{id}', 'QuestionController@getQuestionDetails')->name('questiondetails');
-        
-        
+        Route::any('searchquestion','QuestionController@searchquestion')->name('searchquestion');
+        Route::get('searchquestion/{keyword}','QuestionController@paginatesearchquestion');
+    
+    
         Route::group(['middleware' => ['auth:visitor']], function() {
             Route::get('question/create', 'QuestionController@createQuestion')->name('create');
             Route::post('question/store', 'QuestionController@storeQuestion')->name('store');

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Question;
 use App\Models\QuestionType;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class QuestionController extends Controller {
     public function index() {
@@ -55,6 +56,34 @@ class QuestionController extends Controller {
             $data['question'] = Question::with('answer')->where('id', $id)->first();
             
             return view('frontend.question.questiondetails', $data);
+        } catch(\Exception $exception) {
+            return redirect()->route('frontend.error');
+        }
+    }
+    
+    public function searchquestion(Request $request) {
+        try {
+            if(strlen($request->searchword) <= 0) {
+                return redirect()->back();
+            }
+            $data['searchkeyword'] = $request->searchword;
+            $data['questions'] = DB::table('questions')->whereRaw(" MATCH(title,details) AGAINST('$request->searchword')")->paginate(15);
+            $data['questions']->withPath('searchquestion/'.$request->searchword);
+            
+            return view('frontend.question.searchquestion', $data);
+        } catch(\Exception $exception) {
+            return redirect()->route('frontend.error');
+        }
+    }
+    
+    public function paginatesearchquestion($keyword) {
+        
+        try {
+            $data['searchkeyword'] = $keyword;
+            $data['questions'] = DB::table('questions')->whereRaw(" MATCH(title,details) AGAINST('$keyword')")->paginate(15);
+            $data['questions']->withPath($keyword);
+            
+            return view('frontend.question.searchquestion', $data);
         } catch(\Exception $exception) {
             return redirect()->route('frontend.error');
         }

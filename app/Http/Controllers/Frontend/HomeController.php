@@ -15,6 +15,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\View;
 use Mpdf\Mpdf;
@@ -267,6 +268,35 @@ class HomeController extends Controller {
             
         } catch(\Exception $exception) {
             return response()->json(["ERROR"]);
+        }
+    }
+    
+    public function searchpost(Request $request) {
+        try {
+            if(strlen($request->searchword) <= 0) {
+                return redirect()->back();
+            }
+            $data['searchkeyword'] = $request->searchword;
+            $data['posts'] = DB::table('posts')->whereRaw(" MATCH(title,content) AGAINST('$request->searchword')")->paginate(15);
+            $data['posts']->withPath('searchpost/'.$request->searchword);
+            
+            return view('frontend.searchpost', $data);
+        } catch(\Exception $exception) {
+            return redirect()->route('frontend.error');
+        }
+        
+    }
+    
+    public function paginatesearchpost($keyword) {
+        
+        try {
+            $data['searchkeyword'] = $keyword;
+            $data['posts'] = DB::table('posts')->whereRaw(" MATCH(title,content) AGAINST('$keyword')")->paginate(15);
+            $data['posts']->withPath($keyword);
+            
+            return view('frontend.searchpost', $data);
+        } catch(\Exception $exception) {
+            return redirect()->route('frontend.error');
         }
     }
 }

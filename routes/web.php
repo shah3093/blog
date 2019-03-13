@@ -22,6 +22,8 @@ Route::namespace('Frontend')->group(function() {
     Route::get('aseries/{sslug}/{catslug?}/{pslug?}', 'HomeController@showseries')->name('aseries');
     Route::get('contact', 'HomeController@contact')->name('contact');
     Route::get('pdf/{type}/{slug}', 'HomeController@generatepdf')->name('pdf');
+    Route::any('searchpost','HomeController@searchpost')->name('searchpost');
+    Route::get('searchpost/{keyword}','HomeController@paginatesearchpost');
     
     Route::get('comments/{postSlug}', 'HomeController@getCommentsform')->name('comments');
     Route::post('getcomments/{postid}', 'HomeController@getComments')->name('getcomments');

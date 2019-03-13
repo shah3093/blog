@@ -3,10 +3,11 @@
 </div>
 <div class="col-md-12 col-lg-4 sidebar">
     <div class="sidebar-box search-form-wrap  d-none d-sm-none d-md-none d-lg-block">
-        <form action="#" class="search-form">
+        <form action="{{route('searchpost')}}" method="post" class="search-form">
+            @csrf
             <div class="form-group">
-                <span class="icon fa fa-search"></span>
-                <input type="text" class="form-control" id="s" placeholder="Type a keyword and hit enter">
+                <button class="icon fa fa-search btn" type="submit"></button>
+                <input name="searchword" type="text" class="form-control" id="s" placeholder="Type a keyword and hit enter">
             </div>
         </form>
     </div>

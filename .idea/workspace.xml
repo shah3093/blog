@@ -1,0 +1,1217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f338bc72-e800-48f5-89f0-9919907ce6b8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Backend/SeriesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/SeriesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Frontend/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/frontend/css/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/frontend/css/custom.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/series/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/series/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/layouts/mastar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/layouts/mastar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/partials/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/partials/footer.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/partials/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/partials/header.blade.php" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-508492149">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="25" />
+          <entry key="project.open.time.0" value="5" />
+          <entry key="project.open.time.10" value="1" />
+          <entry key="project.open.time.12" value="3" />
+          <entry key="project.open.time.13" value="3" />
+          <entry key="project.open.time.14" value="1" />
+          <entry key="project.open.time.16" value="3" />
+          <entry key="project.open.time.17" value="2" />
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.open.time.21" value="2" />
+          <entry key="project.open.time.25" value="1" />
+          <entry key="project.open.time.26" value="1" />
+          <entry key="project.open.time.29" value="1" />
+          <entry key="project.open.time.33" value="2" />
+          <entry key="project.open.time.34" value="1" />
+          <entry key="project.open.time.35" value="1" />
+          <entry key="project.open.time.38" value="1" />
+          <entry key="project.open.time.4" value="4" />
+          <entry key="project.open.time.42" value="2" />
+          <entry key="project.open.time.44" value="1" />
+          <entry key="project.open.time.45" value="1" />
+          <entry key="project.open.time.48" value="1" />
+          <entry key="project.open.time.49" value="1" />
+          <entry key="project.open.time.52" value="1" />
+          <entry key="project.open.time.53" value="1" />
+          <entry key="project.open.time.74" value="1" />
+          <entry key="project.open.time.79" value="1" />
+          <entry key="project.open.time.80" value="1" />
+          <entry key="project.opened" value="44" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key=".env file" value="9" />
+          <entry key="Blade" value="421" />
+          <entry key="CSS" value="31" />
+          <entry key="HTML" value="11" />
+          <entry key="JSON" value="8" />
+          <entry key="JavaScript" value="66" />
+          <entry key="Log" value="5" />
+          <entry key="Markdown" value="2" />
+          <entry key="PHP" value="675" />
+          <entry key="PLAIN_TEXT" value="2" />
+          <entry key="RNG Compact" value="1" />
+          <entry key="SCSS" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key=".env file" value="16" />
+          <entry key="Blade" value="19745" />
+          <entry key="CSS" value="272" />
+          <entry key="HTML" value="27" />
+          <entry key="JSON" value="1" />
+          <entry key="JavaScript" value="728" />
+          <entry key="Markdown" value="146" />
+          <entry key="PHP" value="22610" />
+          <entry key="PLAIN_TEXT" value="990" />
+          <entry key="SCSS" value="67" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/frontend/css/custom.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="470">
+              <caret line="146" column="17" selection-start-line="146" selection-start-column="17" selection-end-line="146" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/frontend/partials/header.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="234">
+              <caret line="40" column="37" selection-start-line="40" selection-start-column="37" selection-end-line="40" selection-end-column="53" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>btn-de</find>
+      <find>ajax</find>
+      <find>datainsertdb</find>
+      <find>btn-default</find>
+      <find>deleteFile</find>
+      <find>note-link-popover</find>
+      <find>btn-ou</find>
+      <find>featuredImage</find>
+      <find>&lt;img</find>
+      <find>tag</find>
+      <find>oncli</find>
+      <find>font</find>
+      <find>_font_family</find>
+      <find>width=device-width, initial-scale=1.0</find>
+      <find>col-md-2</find>
+      <find>route</find>
+      <find>backend.categories</find>
+      <find>backend.</find>
+      <find>select2</find>
+      <find>col</find>
+      <find>attach</find>
+      <find>series_id</find>
+      <find>disabled</find>
+      <find>readURL</find>
+      <find>MAIL_FROM_ADDRESS</find>
+      <find>biocomment</find>
+      <find>Question[</find>
+      <find>comment</find>
+      <find>saveComm</find>
+      <find>visitors</find>
+    </findStrings>
+    <dirStrings>
+      <dir>G:\xampp\htdocs\blog\resources\views\backend</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/database/migrations/2019_03_07_153657_create_question_types_table.php" />
+        <option value="$PROJECT_DIR$/app/Models/QuestionType.php" />
+        <option value="$PROJECT_DIR$/resources/views/frontend/question/index.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/frontend/question/questiontypes.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/frontend/question/questiondetails.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/frontend/visitors/template.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Frontend/VisitorController.php" />
+        <option value="$PROJECT_DIR$/resources/views/frontend/visitors/questionslist.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/frontend/visitors/commentslist.blade.php" />
+        <option value="$PROJECT_DIR$/public/backend/custom/scripts/custom.js" />
+        <option value="$PROJECT_DIR$/resources/views/backend/categories/create.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/backend/categories/edit.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/backend/categories/index.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/backend/posts/index.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/backend/tags/index.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/backend/series/create.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/backend/series/index.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/backend/pages/index.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/backend/extrafile/index.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/backend/menus/index.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/backend/questions/index.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/backend/questiontype/index.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/backend/partials/leftsidebar.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/backend/profile/index.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Backend/CategoryController.php" />
+        <option value="$PROJECT_DIR$/resources/views/backend/profile/password.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/backend/partials/errors.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Backend/UserController.php" />
+        <option value="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" />
+        <option value="$PROJECT_DIR$/resources/views/backend/layouts/mastar.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/backend/dashboard.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/backend/partials/header.blade.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_02_08_065809_create_posts_table.php" />
+        <option value="$PROJECT_DIR$/resources/views/frontend/partials/sidebar.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/frontend/searchpost.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/frontend/question/template.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/frontend/question/searchquestion.blade.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_03_07_152126_create_questions_table.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Frontend/QuestionController.php" />
+        <option value="$PROJECT_DIR$/resources/views/frontend/showpost.blade.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_03_06_190436_create_comments_table.php" />
+        <option value="$PROJECT_DIR$/resources/views/frontend/commentsection.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/frontend/layouts/mastar.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/frontend/partials/footer.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/frontend/home.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/backend/series/list.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Frontend/HomeController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Backend/SeriesController.php" />
+        <option value="$PROJECT_DIR$/resources/views/frontend/partials/header.blade.php" />
+        <option value="$PROJECT_DIR$/public/frontend/css/custom.css" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER">
+    <package-json value="$PROJECT_DIR$/package.json" />
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/node_modules" />
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths>
+      <path value="$PROJECT_DIR$/package.json" />
+      <path value="$PROJECT_DIR$/public/backend/assets/libs/flot/package.json" />
+      <path value="$PROJECT_DIR$/public/backend/assets/libs/jquery-asColor/package.json" />
+      <path value="$PROJECT_DIR$/public/backend/assets/libs/jquery-asGradient/package.json" />
+    </packageJsonPaths>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/psy/psysh" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-timer" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-file-iterator" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-token-stream" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-text-template" />
+      <path value="$PROJECT_DIR$/vendor/dnoegel/php-xdg-base-dir" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-code-coverage" />
+      <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/vendor/egulias/email-validator" />
+      <path value="$PROJECT_DIR$/vendor/phpspec/prophecy" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/vendor/lcobucci/jwt" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/vendor/nunomaduro/collision" />
+      <path value="$PROJECT_DIR$/vendor/fideloper/proxy" />
+      <path value="$PROJECT_DIR$/vendor/theseer/tokenizer" />
+      <path value="$PROJECT_DIR$/vendor/paragonie/random_compat" />
+      <path value="$PROJECT_DIR$/vendor/erusev/parsedown" />
+      <path value="$PROJECT_DIR$/vendor/filp/whoops" />
+      <path value="$PROJECT_DIR$/vendor/league/flysystem" />
+      <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/vendor/ramsey/uuid" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/environment" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/object-reflector" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/object-enumerator" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/code-unit-reverse-lookup" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/resource-operations" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/version" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/vendor/tijsverkoyen/css-to-inline-styles" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/vendor/psr/simple-cache" />
+      <path value="$PROJECT_DIR$/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/vendor/beyondcode/laravel-dump-server" />
+      <path value="$PROJECT_DIR$/vendor/opis/closure" />
+      <path value="$PROJECT_DIR$/vendor/dragonmantank/cron-expression" />
+      <path value="$PROJECT_DIR$/vendor/laravel/framework" />
+      <path value="$PROJECT_DIR$/vendor/laravel/tinker" />
+      <path value="$PROJECT_DIR$/vendor/laravel/slack-notification-channel" />
+      <path value="$PROJECT_DIR$/vendor/laravel/nexmo-notification-channel" />
+      <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/vendor/nesbot/carbon" />
+      <path value="$PROJECT_DIR$/vendor/hamcrest/hamcrest-php" />
+      <path value="$PROJECT_DIR$/vendor/fzaninotto/faker" />
+      <path value="$PROJECT_DIR$/vendor/mockery/mockery" />
+      <path value="$PROJECT_DIR$/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/vendor/nexmo/client" />
+      <path value="$PROJECT_DIR$/vendor/symfony/debug" />
+      <path value="$PROJECT_DIR$/vendor/zendframework/zend-diactoros" />
+      <path value="$PROJECT_DIR$/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/vendor/phar-io/version" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php72" />
+      <path value="$PROJECT_DIR$/vendor/phar-io/manifest" />
+      <path value="$PROJECT_DIR$/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/vendor/symfony/contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/vendor/symfony/routing" />
+      <path value="$PROJECT_DIR$/vendor/jakub-onderka/php-console-highlighter" />
+      <path value="$PROJECT_DIR$/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/vendor/php-http/guzzle6-adapter" />
+      <path value="$PROJECT_DIR$/vendor/symfony/css-selector" />
+      <path value="$PROJECT_DIR$/vendor/jakub-onderka/php-console-color" />
+      <path value="$PROJECT_DIR$/vendor/vlucas/phpdotenv" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation" />
+      <path value="$PROJECT_DIR$/vendor/php-http/promise" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/vendor/php-http/httplug" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/symfony/filesystem" />
+      <path value="$PROJECT_DIR$/vendor/seld/phar-utils" />
+      <path value="$PROJECT_DIR$/vendor/justinrainbow/json-schema" />
+      <path value="$PROJECT_DIR$/vendor/seld/jsonlint" />
+      <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-ide-helper" />
+      <path value="$PROJECT_DIR$/vendor/barryvdh/reflection-docblock" />
+      <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-debugbar" />
+      <path value="$PROJECT_DIR$/vendor/maximebf/debugbar" />
+      <path value="$PROJECT_DIR$/vendor/sabberworm/php-css-parser" />
+      <path value="$PROJECT_DIR$/vendor/dompdf/dompdf" />
+      <path value="$PROJECT_DIR$/vendor/phenx/php-font-lib" />
+      <path value="$PROJECT_DIR$/vendor/phenx/php-svg-lib" />
+      <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-dompdf" />
+      <path value="$PROJECT_DIR$/vendor/setasign/fpdi" />
+      <path value="$PROJECT_DIR$/vendor/mpdf/mpdf" />
+    </include_path>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1346" />
+    <option name="height" value="688" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="blog" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blog" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="blog" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blog" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="blog" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blog" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Events" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="blog" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blog" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="blog" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blog" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="blog" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blog" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="blog" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blog" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="blog" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blog" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="blog" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blog" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="layouts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="blog" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blog" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="partials" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SearchEverywhereHistoryKey" value="web&#9;FILE&#9;file://G:/xampp/htdocs/blog/routes/web.php&#10;we&#9;FILE&#9;file://G:/xampp/htdocs/blog/routes/web.php&#10;Home&#9;FILE&#9;file://G:/xampp/htdocs/blog/app/Http/Controllers/Frontend/HomeController.php&#10;web.php&#9;FILE&#9;file://G:/xampp/htdocs/blog/routes/web.php&#10;Series&#9;null&#9;null&#10;TagC&#9;null&#9;null&#10;Appse&#9;null&#9;null&#10;posttag&#9;FILE&#9;file://G:/xampp/htdocs/blog/public/backend/custom/scripts/posttag.js&#10;cus&#9;FILE&#9;file://G:/xampp/htdocs/blog/public/frontend/css/custom.css&#10;mas&#9;FILE&#9;file://G:/xampp/htdocs/blog/resources/views/frontend/layouts/mastar.blade.php&#10;visi&#9;FILE&#9;file://G:/xampp/htdocs/blog/app/Http/Controllers/Frontend/VisitorController.php&#10;custom&#9;FILE&#9;file://G:/xampp/htdocs/blog/public/frontend/css/custom.css&#10;custom.cs&#9;FILE&#9;file://G:/xampp/htdocs/blog/public/frontend/css/custom.css&#10;user&#9;FILE&#9;file://G:/xampp/htdocs/blog/app/Models/User.php&#10;custom-summernote.js&#9;FILE&#9;file://G:/xampp/htdocs/blog/public/backend/custom/scripts/custom-summernote.js&#10;web.pp&#9;FILE&#9;file://G:/xampp/htdocs/blog/routes/web.php" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../laravel-test/multi-auth" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\xampp\htdocs\blog\resources\views\backend\question" />
+      <recent name="G:\xampp\htdocs\blog\resources\views\backend\questiontype" />
+      <recent name="G:\xampp\htdocs\blog\resources\views\frontend\partials" />
+      <recent name="G:\xampp\htdocs\blog\resources\views\backend\extrafile" />
+      <recent name="G:\xampp\htdocs\blog\public\frontend\css" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\xampp\htdocs\blog\app\Http\Controllers\Frontend" />
+      <recent name="G:\xampp\htdocs\blog\app\Http\Controllers\Backend" />
+      <recent name="G:\xampp\htdocs\blog\public\frontend\js" />
+      <recent name="G:\xampp\htdocs\blog\resources\views\backend" />
+      <recent name="G:\xampp\htdocs\blog\public\frontend" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f338bc72-e800-48f5-89f0-9919907ce6b8" name="Default Changelist" comment="" />
+      <created>1549563063609</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1549563063609</updated>
+      <workItem from="1549563065291" duration="16295000" />
+      <workItem from="1549586673851" duration="3842000" />
+      <workItem from="1549648434536" duration="10564000" />
+      <workItem from="1549664856204" duration="8305000" />
+      <workItem from="1549716131157" duration="1165000" />
+      <workItem from="1549732679457" duration="28790000" />
+      <workItem from="1549819737707" duration="5115000" />
+      <workItem from="1549910463322" duration="10005000" />
+      <workItem from="1549979540838" duration="20597000" />
+      <workItem from="1550114393529" duration="6953000" />
+      <workItem from="1550147136892" duration="15771000" />
+      <workItem from="1550190139268" duration="6172000" />
+      <workItem from="1550255051146" duration="13842000" />
+      <workItem from="1550278163086" duration="3037000" />
+      <workItem from="1550345585511" duration="13513000" />
+      <workItem from="1550362659821" duration="15528000" />
+      <workItem from="1550441379283" duration="2139000" />
+      <workItem from="1550449161469" duration="17658000" />
+      <workItem from="1550476782926" duration="4991000" />
+      <workItem from="1550535729096" duration="17888000" />
+      <workItem from="1550625277768" duration="14617000" />
+      <workItem from="1550807812850" duration="5356000" />
+      <workItem from="1550839869484" duration="675000" />
+      <workItem from="1550883504404" duration="9348000" />
+      <workItem from="1550911350100" duration="18040000" />
+      <workItem from="1551070532404" duration="3404000" />
+      <workItem from="1551082059397" duration="15362000" />
+      <workItem from="1551145819358" duration="20997000" />
+      <workItem from="1551232298729" duration="23028000" />
+      <workItem from="1551546978431" duration="4324000" />
+      <workItem from="1551688604943" duration="26029000" />
+      <workItem from="1551774501951" duration="224000" />
+      <workItem from="1551774803720" duration="24961000" />
+      <workItem from="1551862740702" duration="26702000" />
+      <workItem from="1551934783709" duration="1816000" />
+      <workItem from="1551948448729" duration="10346000" />
+      <workItem from="1551982570563" duration="4951000" />
+      <workItem from="1552037143576" duration="15466000" />
+      <workItem from="1552111077673" duration="572000" />
+      <workItem from="1552210582297" duration="14882000" />
+      <workItem from="1552297609191" duration="11865000" />
+      <workItem from="1552400107913" duration="7579000" />
+      <workItem from="1552467575036" duration="587000" />
+      <workItem from="1552468269767" duration="14317000" />
+    </task>
+    <task id="LOCAL-00001" summary="Bismillah&#10;Blog is just pushed now">
+      <created>1549564317935</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1549564317935</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Template setup done">
+      <created>1549579411658</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1549579411658</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Database designed , seeded .&#10;Show Data , setup template">
+      <created>1549676994228</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1549676994228</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Database designed , seeded .&#10;Show Data , setup template">
+      <created>1549716433772</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1549716433772</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Admmin template added , category added">
+      <created>1549769477282</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1549769477282</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Category CRUD completed">
+      <created>1549924334933</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1549924334933</updated>
+    </task>
+    <task id="LOCAL-00007" summary="post create done and also customized summernote">
+      <created>1550183568477</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1550183568477</updated>
+    </task>
+    <task id="LOCAL-00008" summary="post crud done !!">
+      <created>1550192310041</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1550192310041</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Post and tag updated , and syn">
+      <created>1550356681223</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1550356681224</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Page CRUD done">
+      <created>1550367098180</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1550367098180</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Menu generetated">
+      <created>1550464346636</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1550464346636</updated>
+    </task>
+    <task id="LOCAL-00012" summary="PDF generated , tag , mobile device check , templete extend ....">
+      <created>1550642681223</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1550642681225</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Route changes and home page work">
+      <created>1550814024850</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1550814024850</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Route changes and home page work">
+      <created>1550890091693</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1550890091693</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Series CRUD done">
+      <created>1551088846859</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1551088846859</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Category series added">
+      <created>1551108059997</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1551108059997</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Post series extended">
+      <created>1551112043114</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1551112043114</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Page parent removed">
+      <created>1551112464966</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1551112464966</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Series Listing CRUD done">
+      <created>1551194287202</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1551194287202</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Series frontend DONE !!!!">
+      <created>1551280405405</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1551280405405</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Hole system cached">
+      <created>1551710889663</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1551710889663</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Files crud done and some error solved">
+      <created>1551720679028</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1551720679029</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Visitors CRUD done . Some tasks also done">
+      <created>1551809600813</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1551809600814</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Comment Section is DONE !!">
+      <created>1551902439731</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1551902439731</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Comment Section some tasks">
+      <created>1551936605556</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1551936605556</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Question Type CRUD / Question Ask template and Ask done !!">
+      <created>1551985145120</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1551985145123</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Question , answer and types crud done">
+      <created>1552054259369</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1552054259369</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Database seeded">
+      <created>1552074199456</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1552074199456</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Visitor profile and questions section is done">
+      <created>1552232461398</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1552232461398</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Admin Panel Cleaned and make it easy">
+      <created>1552305804190</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1552305804190</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Admin profile CRUD done !!">
+      <created>1552312463975</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1552312463975</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Comment delete done">
+      <created>1552415897700</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1552415897700</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Dashboard designed">
+      <created>1552416870186</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1552416870186</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Post search completed">
+      <created>1552473648806</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1552473648806</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Question search completed">
+      <created>1552482496309</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1552482496309</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Admin comment DONE">
+      <created>1552486594967</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1552486594967</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="497618000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.33661118" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="npm" order="2" side_tool="true" />
+      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3289689" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3289689" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3289689" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.3289689" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.3289689" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
+    </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3207262" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="npm" order="2" side_tool="true" />
+      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3289689" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3289689" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3289689" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.3289689" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.3289689" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Menu generetated" />
+    <MESSAGE value="PDF generated , tag , mobile device check , templete extend ...." />
+    <MESSAGE value="Route changes and home page work" />
+    <MESSAGE value="Series CRUD done" />
+    <MESSAGE value="Category series added" />
+    <MESSAGE value="Post series extended" />
+    <MESSAGE value="Page parent removed" />
+    <MESSAGE value="Series Listing CRUD done" />
+    <MESSAGE value="Series frontend DONE !!!!" />
+    <MESSAGE value="Hole system cached" />
+    <MESSAGE value="Files crud done and some error solved" />
+    <MESSAGE value="Visitors CRUD done . Some tasks also done" />
+    <MESSAGE value="Comment Section is DONE !!" />
+    <MESSAGE value="Comment Section some tasks" />
+    <MESSAGE value="Question Type CRUD / Question Ask template and Ask done !!" />
+    <MESSAGE value="Question , answer and types crud done" />
+    <MESSAGE value="Database seeded" />
+    <MESSAGE value="Visitor profile and questions section is done" />
+    <MESSAGE value="Admin Panel Cleaned and make it easy" />
+    <MESSAGE value="Admin profile CRUD done !!" />
+    <MESSAGE value="Comment delete done" />
+    <MESSAGE value="Dashboard designed" />
+    <MESSAGE value="Post search completed" />
+    <MESSAGE value="Question search completed" />
+    <MESSAGE value="Admin comment DONE" />
+    <option name="LAST_COMMIT_MESSAGE" value="Admin comment DONE" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/resources/views/backend/series/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="22" column="35" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend/posts/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="82" column="2" selection-start-line="82" selection-start-column="2" selection-end-line="119" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend/series/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="86" column="2" selection-start-line="86" selection-start-column="2" selection-end-line="102" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend/extrafile/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="92" column="8" selection-start-line="92" selection-start-column="8" selection-end-line="104" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend/menus/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="79" column="4" lean-forward="true" selection-start-line="79" selection-start-column="4" selection-end-line="86" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend/questiontype/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="744">
+          <caret line="75" column="36" selection-start-line="75" selection-start-column="36" selection-end-line="75" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend/categories/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="95" column="26" selection-start-line="95" selection-start-column="26" selection-end-line="95" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backend/CategoryController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="132" column="55" selection-start-line="132" selection-start-column="55" selection-end-line="132" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backend/PostController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="192" column="30" selection-start-line="192" selection-start-column="30" selection-end-line="192" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend/profile/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="366">
+          <caret line="69" column="35" selection-end-line="88" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend/categories/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="26" column="15" selection-start-line="26" selection-start-column="15" selection-end-line="29" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend/partials/errors.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/frontend/partials/errors.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="30" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend/profile/password.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="50" column="95" selection-start-line="50" selection-start-column="87" selection-end-line="50" selection-end-column="95" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backend/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="344">
+          <caret line="97" column="38" selection-start-line="97" selection-start-column="38" selection-end-line="97" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend/questions/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="64" column="105" selection-start-line="64" selection-start-column="41" selection-end-line="64" selection-end-column="105" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/Comment.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend/layouts/mastar.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="94" column="33" selection-start-line="94" selection-start-column="33" selection-end-line="94" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend/pages/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="20" selection-start-line="20" selection-end-line="20" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend/dashboard.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1332">
+          <caret line="95" column="23" lean-forward="true" selection-start-line="95" selection-start-column="23" selection-end-line="95" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend/partials/leftsidebar.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="68" column="87" selection-start-line="68" selection-start-column="87" selection-end-line="68" selection-end-column="115" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend/partials/header.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="347">
+          <caret line="63" column="25" lean-forward="true" selection-start-line="57" selection-start-column="20" selection-end-line="63" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/frontend/showcategory.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/frontend/searchpost.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="61" selection-start-line="7" selection-start-column="61" selection-end-line="7" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/frontend/question/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="21" column="56" selection-end-line="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_02_08_065809_create_posts_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="38" column="8" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_03_07_152126_create_questions_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="26" column="77" selection-start-line="26" selection-start-column="77" selection-end-line="26" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/frontend/question/searchquestion.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Frontend/QuestionController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="82" column="106" selection-start-line="82" selection-start-column="106" selection-end-line="82" selection-end-column="106" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/frontend/question/template.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="17" column="70" selection-start-line="17" selection-start-column="70" selection-end-line="17" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/frontend/visitors/commentslist.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="22" column="60" selection-start-line="22" selection-start-column="60" selection-end-line="22" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_03_06_190436_create_comments_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="18" column="65" selection-start-line="18" selection-start-column="65" selection-end-line="18" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Frontend/VisitorController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="191" column="35" selection-start-line="191" selection-start-column="28" selection-end-line="191" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/frontend/commentsection.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="17" column="62" selection-start-line="17" selection-start-column="62" selection-end-line="17" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/frontend/showpost.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="88" column="33" selection-start-line="88" selection-start-column="33" selection-end-line="88" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/frontend/partials/footer.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="41" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend/series/edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="42" column="44" selection-start-line="42" selection-start-column="44" selection-end-line="42" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend/series/list.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="18" column="114" selection-start-line="18" selection-start-column="114" selection-end-line="18" selection-end-column="114" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Listeners/PostEventListeners.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-376" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Listeners/SeriesEventListeners.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-552" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Events/SidebarEvent.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backend/SeriesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="157" column="34" selection-start-line="157" selection-start-column="34" selection-end-line="157" selection-end-column="34" />
+          <folding>
+            <element signature="e#48#76#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Providers/AppServiceProvider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="35" column="33" selection-start-line="35" selection-start-column="23" selection-end-line="35" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Listeners/SidebarEventListeners.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="41" column="44" selection-start-line="41" selection-start-column="44" selection-end-line="41" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/frontend/home.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="452">
+          <caret line="36" column="49" selection-start-line="36" selection-start-column="49" selection-end-line="36" selection-end-column="49" />
+          <folding>
+            <element signature="e#1298#1333#0#HTML" expanded="true" />
+            <element signature="e#1885#1928#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/frontend/partials/sidebar.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="25" column="26" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Frontend/HomeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="24" column="29" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/frontend/layouts/mastar.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/frontend/partials/header.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="40" column="37" selection-start-line="40" selection-start-column="37" selection-end-line="40" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/frontend/css/custom.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="470">
+          <caret line="146" column="17" selection-start-line="146" selection-start-column="17" selection-end-line="146" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

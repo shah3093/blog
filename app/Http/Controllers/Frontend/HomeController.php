@@ -36,6 +36,12 @@ class HomeController extends Controller {
         
         $data['postsTopPage'] = Post::select("slug", "title", "featuredImage")->where([
             "status"      => 1,
+            "homepageTop" => 1,
+            
+        ])->get();
+    
+        $data['seriesTopPage'] = Series::select("slug", "name", "featuredImage")->where([
+            "status"      => 1,
             "homepageTop" => 1
         ])->get();
         

@@ -53,4 +53,8 @@ class Post extends Model
     public function comments(){
         return $this->hasMany('App\Models\Comment','post_id');
     }
+
+    public function quizzes(){
+        return $this->hasMany(Quiz::class,'post_id');
+    }
 }

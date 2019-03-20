@@ -23,6 +23,12 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('backend.quizzes.index')}}" aria-expanded="false">
+                        <i class="mdi mdi-network-question"></i>
+                        <span class="hide-menu">Quiz</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
                     <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('backend.tags.index')}}" aria-expanded="false">
                         <i class="mdi mdi-tag"></i>
                         <span class="hide-menu">Tag</span>

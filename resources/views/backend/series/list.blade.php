@@ -13,11 +13,11 @@
                             <li class="breadcrumb-item active" aria-current="page">Series List</li>
                         </ol>
                     </nav>
+                    <a href="{{route('backend.series.index')}}" class="btn btn-danger "><i class="mdi mdi-skip-backward"></i> Back</a>
                 </div>
             </div>
         </div>
-        <a href="{{route('backend.series.index')}}" class="btn btn-danger "><i class="mdi mdi-skip-backward"></i> Back</a>
-    </div>
+     </div>
 @endsection
 
 @section('content')

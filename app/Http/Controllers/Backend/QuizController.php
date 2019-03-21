@@ -99,8 +99,7 @@ class QuizController extends Controller
     public function update(Request $request, $id)
     {
         $validatedData = $request->validate([
-            'name'  => 'required|unique:quizzes,name',
-            'image' => 'required|image',
+            'name'  => 'required|unique:quizzes,name,'.$id,
             'post' => 'required'
         ]);
 

@@ -16,6 +16,7 @@ Route::namespace('Frontend')->group(function() {
     Route::get('/home', 'HomeController@index')->name('home');
     
     Route::get('post/{slug}/{commentid?}', 'HomeController@showpost')->name('post');
+    Route::get('quiz/{quizslug}', 'HomeController@showquiz')->name('quiz');
     Route::get('category/{slug}', 'HomeController@showcategory')->name('category');
     Route::get('page/{slug}', 'HomeController@showpage')->name('page');
     Route::get('tag/{name}', 'HomeController@showtag')->name('tag');

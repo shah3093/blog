@@ -87,8 +87,8 @@
                                         </option>
                                         <option {{ "post" == $menu->menu_type ? "selected":"" }} value="post"> Post
                                         </option>
-                                        <option {{ "contact" == $menu->menu_type ? "selected":"" }} value="contact">
-                                            Contact
+                                        <option {{ "qa" == $menu->menu_type ? "selected":"" }} value="contact">
+                                            Question & Answer
                                         </option>
                                         <option {{ "custom" == $menu->menu_type ? "selected":"" }} value="custom">
                                             Custom
@@ -104,10 +104,10 @@
                                             <input type="text" readonly value="home" class="required form-control" name="menu_url" id="menuitem"/>
                                         @elseif($menu->menu_type == "name")
                                             <input type="text" readonly value="#" class="required form-control" name="menu_url" id="menuitem"/>
-                                         @elseif($menu->menu_type == "contact")
-                                            <input type="text" readonly value="contact" class="required form-control" name="menu_url" id="menuitem"/>
+                                         @elseif($menu->menu_type == "qa")
+                                            <input type="text" readonly value="question" class="required form-control" name="menu_url" id="menuitem"/>
                                         @elseif($menu->menu_type == "custom")
-                                            <input type="url" value="" class="required form-control" name="menu_url" id="menuitem"/>
+                                            <input type="url" value="{{$menu->menu_url}}" class="required form-control" name="menu_url" id="menuitem"/>
                                         @elseif($menu->menu_type == "page")
                                             <select class="required form-control select2" name="menu_url" id="menuitem">
         <option value="">Select page</option>

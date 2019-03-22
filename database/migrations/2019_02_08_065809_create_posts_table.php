@@ -35,6 +35,8 @@ class CreatePostsTable extends Migration
             
             $table->foreign('categoryId')->references('id')->on('categories')->onDelete('cascade');
         });
+    
+        DB::statement('ALTER TABLE posts ADD FULLTEXT full(title, content)');
     }
 
     /**

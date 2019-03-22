@@ -14,6 +14,15 @@
                     @yield('q-content')
                 </div>
                 <div class="col-md-4 sidebar">
+                    <div class="sidebar-box search-form-wrap  d-none d-sm-none d-md-none d-lg-block">
+                        <form action="{{route('question.searchquestion')}}" method="post" class="search-form">
+                            @csrf
+                            <div class="form-group">
+                                <button class="icon fa fa-search btn" type="submit"></button>
+                                <input name="searchword" type="text" class="form-control" id="s" placeholder="Type a keyword and hit enter">
+                            </div>
+                        </form>
+                    </div>
                     <div class="sidebar-box ">
                         <div class="bio">
                             <div class="bio-body text-center">

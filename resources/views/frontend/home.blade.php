@@ -22,6 +22,26 @@
                         </a>
                     </div>
                 @endforeach
+
+                @foreach($seriesTopPage as $seriest)
+                    <div class="col-md-6 col-lg-4 item" style="max-width: 100% !important;">
+                        <?php
+                        $url = "";
+                        $check = preg_match('/series/', $seriest->featuredImage);
+                        if(empty($check)) {
+                            $url = $seriest->featuredImage;
+                        } else {
+                            $url = Storage::url($seriest->featuredImage);
+                        }
+                        ?>
+                        <a href="{{route('aseries',['slug'=>$seriest->slug])}}" class="a-block d-flex align-items-center height-md" style="background-image: url('{{$url}}'); ">
+                            <div class="text">
+                                <h3>{{$seriest->name}}</h3>
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
+
                 @foreach($postsTopPage as $post)
                     <div class="col-md-6 col-lg-4 item" style="max-width: 100% !important;">
                         <?php

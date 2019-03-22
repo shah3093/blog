@@ -84,8 +84,8 @@
                                         </option>
                                         <option {{ "post" == old('menu_type') ? "selected":"" }} value="post"> Post
                                         </option>
-                                        <option {{ "contact" == old('menu_type') ? "selected":"" }} value="contact">
-                                            Contact
+                                        <option {{ "contact" == old('menu_type') ? "selected":"" }} value="qa">
+                                            Question & Answer
                                         </option>
                                         <option {{ "custom" == old('menu_type') ? "selected":"" }} value="custom">
                                             Custom

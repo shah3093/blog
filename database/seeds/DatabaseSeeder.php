@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Models\Quiz;
 
 class DatabaseSeeder extends Seeder {
     /**
@@ -18,5 +19,8 @@ class DatabaseSeeder extends Seeder {
         $this->call(VisitorSeeder::class);
         $this->call(QuestionSeeder::class);
         $this->call(QuestionTypeSeeder::class);
+        $this->call(QuizSeeder::class);
+        $this->call(QuizQuestionSeeder::class);
+        $this->call(QuizAnswerSeeder::class);
     }
 }

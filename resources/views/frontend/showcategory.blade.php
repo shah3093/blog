@@ -8,7 +8,16 @@
 
     <meta name="og:title" content="{{$category->name}}"/>
     <meta name="og:url" content="{{route('category',['slug'=>$category->slug])}}"/>
-    <meta name="og:image" content="{{$category->featuredImage}}"/>
+    <?php
+    $url = "";
+    $check = preg_match('/category/', $category->featuredImage);
+    if (empty($check)) {
+        $url = $category->featuredImage;
+    } else {
+        $url = Storage::url($category->featuredImage);
+    }
+    ?>
+    <meta name="og:image" content="{{$url}}"/>
     <meta name="og:site_name" content="Azad Blogs"/>
     <meta name="og:description" content="{{$category->seo_descriptions}}"/>
 
@@ -33,7 +42,7 @@
                                 <?php
                                 $url = "";
                                 $check = preg_match('/post/', $post->featuredImage);
-                                if(empty($check)) {
+                                if (empty($check)) {
                                     $url = $post->featuredImage;
                                 } else {
                                     $url = Storage::url($post->featuredImage);
@@ -41,7 +50,8 @@
                                 ?>
                                 <div class="post-entry-horzontal">
                                     <a href="{{route('post',['slug'=>$post->slug])}}">
-                                        <div class="image element-animate custom-image" data-animate-effect="fadeIn" style="background-image: url('{{$url}}');"></div>
+                                        <div class="image element-animate custom-image" data-animate-effect="fadeIn"
+                                             style="background-image: url('{{$url}}');"></div>
                                         <span class="text custom-text">
                                             <h2>{{$post->title}}</h2>
                                             <p>{{$post->excerpt}}</p>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Events\SidebarEvent;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Post;
@@ -154,7 +155,7 @@ class SeriesController extends Controller {
         $series =Series::with('categories')->find($id);
         $series->categories()->detach();
         Series::destroy($id);
-        
+        event(new SidebarEvent());
         return redirect()->route('backend.series.index');
     }
     
@@ -189,6 +190,8 @@ class SeriesController extends Controller {
             $post = Post::find($request->postid);
             $post->sort_order = $request->sort_order;
             $post->save();
+    
+            event(new SidebarEvent());
             
             return response()->json(['DONE']);
         } catch(\Exception $exception) {
@@ -206,7 +209,7 @@ class SeriesController extends Controller {
             
             $category = Category::find($request->category);
             $category->series()->attach($request->series, ['sort_order' => $request->sort_order]);
-            
+            event(new SidebarEvent());
             return response()->json(['DONE']);
         } catch(\Exception $exception) {
             return response()->json([$exception->getMessage()]);
@@ -223,7 +226,7 @@ class SeriesController extends Controller {
             $series = Series::find($request->seriesid);
             // $series->categories()->sync($request->categoryid);
             $series->categories()->updateExistingPivot($request->categoryid, ['sort_order' => $request->sort_order]);
-            
+            event(new SidebarEvent());
             return response()->json(["DONE"]);
         } catch(\Exception $exception) {
             return response()->json([$exception->getMessage()]);
@@ -234,7 +237,7 @@ class SeriesController extends Controller {
         try {
             $category = Category::find($categoryid);
             $category->series()->detach();
-            
+            event(new SidebarEvent());
             return redirect()->back();
         } catch(\Exception $exception) {
             return response()->json([$exception->getMessage()]);

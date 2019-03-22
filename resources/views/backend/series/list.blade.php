@@ -13,10 +13,11 @@
                             <li class="breadcrumb-item active" aria-current="page">Series List</li>
                         </ol>
                     </nav>
+                    <a href="{{route('backend.series.index')}}" class="btn btn-danger "><i class="mdi mdi-skip-backward"></i> Back</a>
                 </div>
             </div>
         </div>
-    </div>
+     </div>
 @endsection
 
 @section('content')
@@ -145,7 +146,7 @@
                                     <option value="{{$category->id}}">{{$category->name}}</option>
                                 @endforeach
                             </select>
-                            <input type="hidden" value="{{$seriesid}}" name="series" />
+                            <input type="hidden" value="{{$seriesid}}" name="series"/>
                         </div>
                         <div class="form-group">
                             <label for="name">Sort order</label>

@@ -75,6 +75,15 @@
                         </div>
                     @endif
 
+                        <div class="mt-5-custom">
+                            @if(count($quizzes) > 0)
+                            <h4>Participate on quiz</h4>
+                                @foreach($quizzes as $quiz)
+                                     <a href="{{route('quiz',['quizslug'=>$quiz->slug])}}" class="btn btn-success">{{$quiz->name}}</a>
+                                @endforeach
+                            @endif
+                        </div>
+                    
                     <div class="post-content-body mt-5-custom">
                         <div id="errordiv" style="color: red;"></div>
                         <form action="{{route('saveComments',['postid'=>$post->id])}}" method="post" class="mb-5-custom" autocomplete="off">
@@ -82,19 +91,18 @@
                                 <label for="comment">Comment:</label>
                                 <textarea name="comment" placeholder="What are you doing right now?" class="form-control" rows="5" id="comment"></textarea>
                             </div>
-                            @auth('visitor')
+                            @if(Auth::guard('visitor')->check() || Auth::guard('web')->check())
                                 <button data-url="{{route('saveComments',['postid'=>$post->id])}}" id="savecomment" type="submit" class="btn btn-primary pull-right">
                                     Submit
                                 </button>
-                            @endauth
-                            @guest('visitor')
+                            @else
                                 <a href="#" data-toggle="modal" data-target="#loginModal" type="submit" class="btn btn-primary pull-right">
                                     Submit
                                 </a>
                                 @include('frontend.partials.login')
-                            @endguest
+                            @endif
                             {{--<a href="#" id="refreshcomment" class="btn btn-info pull-right mr-2">--}}
-                                {{--<i class="fa fa-refresh"></i>--}}
+                            {{--<i class="fa fa-refresh"></i>--}}
                             {{--</a>--}}
                         </form>
 
